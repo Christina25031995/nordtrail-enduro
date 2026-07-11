@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<a href="#top" style="position:absolute;top:-100px;left:0;background:#ff6b2c;color:#0c0f0d;padding:0.5rem 1rem;font-weight:700;font-size:0.9rem;border-radius:0 0 8px 0;z-index:999;transition:top 0.2s;" onfocus="this.style.top='0'" onblur="this.style.top='-100px'">Перейти к содержимому</a>
+<helmet>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Прокат и обучение эндуро в Ленинградской области. 20 минут от м. Дыбенко. Мотоцикл, экипировка, маршрут и инструктор — всё включено. Права не нужны.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Enduro Energy — эндуро туры и прокат рядом с СПб">
+  <meta property="og:description" content="Прокат эндуро, прохваты до Невы и Богословки. Для новичков и опытных райдеров. 20 мин от м. Дыбенко, Ленинградская область.">
+  <meta property="og:image" content="https://christina25031995.github.io/nordtrail-enduro/hero.jpg">
+  <meta property="og:url" content="https://christina25031995.github.io/nordtrail-enduro/">
+  <meta property="og:locale" content="ru_RU">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Enduro Energy — эндуро туры рядом с СПб">
+  <meta name="twitter:description" content="Прокат эндуро, прохваты до Невы и Богословки. 20 мин от м. Дыбенко.">
+  <meta name="twitter:image" content="https://christina25031995.github.io/nordtrail-enduro/hero.jpg">
+  <link rel="canonical" href="https://christina25031995.github.io/nordtrail-enduro/">
+  <link rel="icon" href="logo.png" type="image/png">
+  <link rel="preload" as="video" href="hero.mp4" type="video/mp4">
+  <title>Enduro Energy — эндуро туры и прокат рядом с СПб</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800&amp;display=swap" rel="stylesheet">
+  <style>
+    body { margin: 0; background: #0c0f0d; color: #f5f2ea; font-family: 'DM Sans', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    a:hover { color: #ffab7a; }
+    * { box-sizing: border-box; }
+    img, video { max-width: 100%; display: block; }
+    ::selection { background: rgba(255,107,44,0.35); color: #fff; }
+    details > summary { list-style: none; cursor: pointer; }
+    details > summary::-webkit-details-marker { display: none; }
+    @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+    @keyframes drift { 0% { transform: translateY(0); opacity: 0.6; } 100% { transform: translateY(-40vh); opacity: 0; } }
+    @keyframes scrollPulse { 0%, 100% { opacity: 0.4; transform: scaleY(0.8); } 50% { opacity: 1; transform: scaleY(1); } }
+    @keyframes heroZoom { 0% { transform: scale(1.02); } 100% { transform: scale(1.12); } }
+    @keyframes spinSlow { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    @keyframes bikeFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+    @keyframes speedLine { 0% { transform: translateX(-120%); opacity: 0; } 15% { opacity: 1; } 85% { opacity: 1; } 100% { transform: translateX(340%); opacity: 0; } }
+  </style>
+</helmet>
+
+<template id="__bundler_thumbnail">
+  <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <rect width="200" height="200" fill="#0c0f0d"/>
+    <text x="100" y="112" font-family="Arial, sans-serif" font-weight="800" font-size="46" fill="#ff6b2c" text-anchor="middle">EE</text>
+  </svg>
+</template>
+
+<div style="width:0;height:3px;background:linear-gradient(90deg,#ff6b2c,#ffab7a);position:fixed;top:0;left:0;z-index:200;transition:width 0.1s linear;" ref="{{ setProgressRef }}"></div>
+
+<header style="position:fixed;inset:0 0 auto;z-index:100;height:76px;display:flex;align-items:center;background:transparent;border-bottom:1px solid transparent;transition:background 0.4s cubic-bezier(0.22,1,0.36,1);" ref="{{ setHeaderRef }}">
+  <nav style="width:min(1280px,94vw);margin-inline:auto;display:flex;align-items:center;justify-content:space-between;">
+    <a href="#top" style="display:flex;align-items:center;">
+      <img src="logo.png" alt="Enduro Energy" style="height:60px;width:auto;object-fit:contain;filter:drop-shadow(0 2px 10px rgba(0,0,0,0.5));">
+    </a>
+
+    <ul style="{{ navLinksRowStyle }}">
+      <li><a href="#trust" style="font-size:0.92rem;color:rgba(245,242,234,0.75);">Почему мы</a></li>
+      <li><a href="#routes" style="font-size:0.92rem;color:rgba(245,242,234,0.75);">Прохваты</a></li>
+      <li><a href="#fleet" style="font-size:0.92rem;color:rgba(245,242,234,0.75);">Мотоциклы</a></li>
+      <li><a href="#pricing" style="font-size:0.92rem;color:rgba(245,242,234,0.75);">Цены</a></li>
+      <li><a href="#scenarios" style="font-size:0.92rem;color:rgba(245,242,234,0.75);">Сценарии</a></li>
+      <li><a href="https://t.me/enduro_energy" target="_blank" rel="noopener noreferrer" style="padding:0.6rem 1.2rem;background:#ff6b2c;color:#0c0f0d !important;border-radius:8px;font-weight:700;font-size:0.9rem;" style-hover="transform:translateY(-1px);box-shadow:0 10px 26px rgba(255,107,44,0.35);">Записаться</a></li>
+    </ul>
+
+    <button type="button" aria-label="Открыть меню" onClick="{{ toggleMobile }}" style="{{ navToggleStyle }}">
+      <span style="display:block;width:24px;height:2px;background:#fff;"></span>
+      <span style="display:block;width:24px;height:2px;background:#fff;"></span>
+      <span style="display:block;width:24px;height:2px;background:#fff;"></span>
+    </button>
+  </nav>
+</header>
+
+<div style="{{ mobileMenuStyle }}">
+  <a href="#trust" onClick="{{ closeMobile }}" style="color:#fff;">Почему мы</a>
+  <a href="#routes" onClick="{{ closeMobile }}" style="color:#fff;">Прохваты</a>
+  <a href="#fleet" onClick="{{ closeMobile }}" style="color:#fff;">Мотоциклы</a>
+  <a href="#pricing" onClick="{{ closeMobile }}" style="color:#fff;">Цены</a>
+  <a href="#scenarios" onClick="{{ closeMobile }}" style="color:#fff;">Сценарии</a>
+  <a href="https://t.me/enduro_energy" target="_blank" rel="noopener noreferrer" onClick="{{ closeMobile }}" style="padding:0.85rem 2.2rem;background:#ff6b2c;color:#0c0f0d;border-radius:8px;font-weight:700;">Записаться</a>
+</div>
+
+<main id="top" style="position:relative;overflow-x:hidden;">
+
+  <!-- HERO -->
+  <section style="position:relative;min-height:100vh;display:flex;align-items:flex-end;overflow:hidden;padding:calc(76px + 3rem) 0 5rem;">
+    <div style="position:absolute;inset:0;overflow:hidden;">
+      <video ref="{{ setRideVideoRef }}" autoplay muted defaultMuted loop playsinline style="position:absolute;left:0;top:-8%;width:100%;height:118%;object-fit:cover;animation:heroZoom 26s ease-in-out infinite alternate;">
+        <source src="hero.mp4" type="video/mp4">
+      </video>
+      <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(8,10,9,0.95) 0%, rgba(8,10,9,0.55) 45%, rgba(8,10,9,0.35) 100%);"></div>
+      <div style="position:absolute;inset:0;background:linear-gradient(to bottom, rgba(8,10,9,0.7) 0%, transparent 30%);"></div>
+      <div style="position:absolute;inset:0;pointer-events:none;background-image:url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22n%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.7%22 numOctaves=%223%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23n)%22/%3E%3C/svg%3E');opacity:0.05;"></div>
+      <div style="position:absolute;width:2px;height:2px;border-radius:50%;background:#ffab7a;box-shadow:12vw 70vh 0 0 rgba(255,140,90,0.5),45vw 40vh 0 0 rgba(255,140,90,0.3),78vw 60vh 0 0 rgba(255,140,90,0.4),25vw 85vh 0 0 rgba(255,140,90,0.25),88vw 30vh 0 0 rgba(255,140,90,0.35),58vw 90vh 0 0 rgba(255,140,90,0.2);animation:drift 18s linear infinite;"></div>
+    </div>
+
+    <div style="position:relative;z-index:2;width:min(1280px,94vw);margin-inline:auto;">
+      <p style="font-size:0.8rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#ffab7a;margin:0 0 1.1rem;">Эндуро туры в Ленинградской области</p>
+      <h1 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,8vw,6.8rem);line-height:0.94;letter-spacing:0.02em;text-transform:uppercase;color:#fff;margin:0 0 1.4rem;max-width:16ch;">Приключения ближе, чем ты думаешь</h1>
+      <p style="font-size:1.15rem;color:rgba(255,255,255,0.82);max-width:34rem;margin:0 0 2rem;line-height:1.6;">Прокат и обучение эндуро для новичков и опытных райдеров. Мотоцикл, экипировка, маршрут и инструктор — всё включено. 20 минут от м. Дыбенко.</p>
+
+      <div style="display:flex;flex-wrap:wrap;gap:1rem;margin-bottom:1.5rem;">
+        <a href="https://t.me/enduro_energy" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;justify-content:center;padding:1rem 2rem;border-radius:8px;font-weight:700;font-size:1rem;background:#ff6b2c;color:#0c0f0d;transition:transform 0.2s,box-shadow 0.2s;" style-hover="transform:translateY(-2px);box-shadow:0 14px 34px rgba(255,107,44,0.35);">Записаться на катание</a>
+        <a href="#routes" style="display:inline-flex;align-items:center;justify-content:center;padding:1rem 2rem;border-radius:8px;font-weight:600;font-size:1rem;border:1px solid rgba(255,255,255,0.25);color:#fff;transition:background 0.2s,border-color 0.2s;" style-hover="border-color:#ff6b2c;background:rgba(255,107,44,0.15);">Смотреть прохваты</a>
+      </div>
+
+      <div style="display:inline-flex;align-items:center;gap:0.6rem;padding:0.6rem 1.1rem;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.14);border-radius:999px;font-size:0.85rem;color:#fff;margin-bottom:2.2rem;backdrop-filter:blur(6px);">
+        <span style="width:8px;height:8px;border-radius:50%;background:#ff6b2c;box-shadow:0 0 0 4px rgba(255,107,44,0.25);"></span>
+        {{ urgencyText }}
+      </div>
+
+      <dl style="display:flex;flex-wrap:wrap;gap:2.5rem;margin:0;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.15);">
+        <div>
+          <dt style="font-family:'Bebas Neue',sans-serif;font-size:2.1rem;color:#fff;letter-spacing:0.04em;margin:0;">20 мин</dt>
+          <dd style="font-size:0.85rem;color:rgba(255,255,255,0.65);margin:0.2rem 0 0;">от м. Дыбенко</dd>
+        </div>
+        <div>
+          <dt style="font-family:'Bebas Neue',sans-serif;font-size:2.1rem;color:#fff;letter-spacing:0.04em;margin:0;">Любой уровень</dt>
+          <dd style="font-size:0.85rem;color:rgba(255,255,255,0.65);margin:0.2rem 0 0;">от новичка до профи</dd>
+        </div>
+        <div>
+          <dt style="font-family:'Bebas Neue',sans-serif;font-size:2.1rem;color:#fff;letter-spacing:0.04em;margin:0;">Всё включено</dt>
+          <dd style="font-size:0.85rem;color:rgba(255,255,255,0.65);margin:0.2rem 0 0;">мотоцикл + экипировка</dd>
+        </div>
+      </dl>
+    </div>
+
+    <div style="position:absolute;bottom:2rem;right:max(4vw,1rem);z-index:2;display:flex;flex-direction:column;align-items:center;gap:0.75rem;font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.7);">
+      <span>Скролл</span>
+      <div style="width:1px;height:48px;background:linear-gradient(#ff6b2c,transparent);animation:scrollPulse 2s ease-in-out infinite;"></div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <section aria-hidden="true" style="padding:1.25rem 0;border-block:1px solid rgba(255,255,255,0.08);overflow:hidden;background:#0c0f0d;">
+    <div style="display:flex;gap:2rem;white-space:nowrap;animation:marquee 32s linear infinite;font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:0.08em;color:rgba(245,242,234,0.4);">
+      <span>Прокат эндуро</span><span style="color:#ffab7a;">·</span>
+      <span>Маршруты на любой уровень</span><span style="color:#ffab7a;">·</span>
+      <span>Лесные трассы</span><span style="color:#ffab7a;">·</span>
+      <span>Карьеры</span><span style="color:#ffab7a;">·</span>
+      <span>Прохваты</span><span style="color:#ffab7a;">·</span>
+      <span>Обучение с нуля</span><span style="color:#ffab7a;">·</span>
+      <span>20 минут от м. Дыбенко</span><span style="color:#ffab7a;">·</span>
+      <span>Права не нужны</span><span style="color:#ffab7a;">·</span>
+      <span>Экипировка включена</span><span style="color:#ffab7a;">·</span>
+      <span>Прокат эндуро</span><span style="color:#ffab7a;">·</span>
+      <span>Маршруты на любой уровень</span><span style="color:#ffab7a;">·</span>
+      <span>Лесные трассы</span><span style="color:#ffab7a;">·</span>
+      <span>Карьеры</span><span style="color:#ffab7a;">·</span>
+      <span>Прохваты</span><span style="color:#ffab7a;">·</span>
+      <span>Обучение с нуля</span><span style="color:#ffab7a;">·</span>
+      <span>20 минут от м. Дыбенко</span><span style="color:#ffab7a;">·</span>
+      <span>Права не нужны</span><span style="color:#ffab7a;">·</span>
+      <span>Экипировка включена</span><span style="color:#ffab7a;">·</span>
+    </div>
+  </section>
+
+  <!-- TRUST / ПОЧЕМУ МЫ -->
+  <section id="trust" style="background:#0c0f0d;padding:6rem 0;overflow:hidden;">
+    <div style="width:min(1280px,94vw);margin-inline:auto;">
+
+      <div ref="{{ statsBoxRef }}" style="{{ statsGridStyle }}">
+        <div style="padding:2rem 2.5rem;border-right:1px solid rgba(255,255,255,0.08);">
+          <div style="display:flex;align-items:baseline;gap:0.2rem;"><span data-count-target="5" style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.3rem,4vw,3.3rem);color:#ff6b2c;line-height:1;">0</span><span style="color:#ff6b2c;font-size:1.8rem;font-family:'Bebas Neue',sans-serif;">+</span></div>
+          <div style="font-size:0.78rem;color:rgba(255,255,255,0.45);text-transform:uppercase;letter-spacing:0.1em;margin-top:0.3rem;">лет работы</div>
+        </div>
+        <div style="padding:2rem 2.5rem;border-right:1px solid rgba(255,255,255,0.08);">
+          <div style="display:flex;align-items:baseline;gap:0.2rem;"><span data-count-target="500" style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.3rem,4vw,3.3rem);color:#ff6b2c;line-height:1;">0</span><span style="color:#ff6b2c;font-size:1.8rem;font-family:'Bebas Neue',sans-serif;">+</span></div>
+          <div style="font-size:0.78rem;color:rgba(255,255,255,0.45);text-transform:uppercase;letter-spacing:0.1em;margin-top:0.3rem;">выездов</div>
+        </div>
+        <div style="padding:2rem 2.5rem;">
+          <div style="display:flex;align-items:baseline;gap:0.2rem;"><span data-count-target="20" style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.3rem,4vw,3.3rem);color:#ff6b2c;line-height:1;">0</span><span style="color:#ff6b2c;font-size:1.1rem;font-family:'Bebas Neue',sans-serif;"> мин</span></div>
+          <div style="font-size:0.78rem;color:rgba(255,255,255,0.45);text-transform:uppercase;letter-spacing:0.1em;margin-top:0.3rem;">от м. Дыбенко</div>
+        </div>
+      </div>
+
+      
+
+      <div style="{{ expMainGridStyle }}">
+        <div ref="{{ onReveal }}" style="opacity:0;transform:translateY(32px);transition:opacity 0.7s cubic-bezier(0.22,1,0.36,1),transform 0.7s cubic-bezier(0.22,1,0.36,1);">
+          <p style="font-size:0.78rem;letter-spacing:0.16em;text-transform:uppercase;color:#ff6b2c;font-weight:700;margin:0 0 1.25rem;">Почему Enduro Energy</p>
+          <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.6rem,5vw,4.6rem);color:#fff;letter-spacing:0.02em;line-height:1;margin:0 0 1.5rem;">Не просто <span style="color:#ff6b2c;">мотоцикл</span> напрокат.</h2>
+          <p style="font-size:1.05rem;color:rgba(255,255,255,0.6);line-height:1.7;max-width:38ch;margin:0;">Наша цель — подарить яркие эмоции, уверенность и настоящее приключение. Катаем как со своими: спокойно, понятно, с упором на удовольствие.</p>
+          <a href="https://t.me/enduro_energy" target="_blank" rel="noopener noreferrer" style="display:inline-flex;margin-top:2.25rem;padding:0.9rem 1.9rem;border-radius:8px;font-weight:700;font-size:0.95rem;background:#ff6b2c;color:#0c0f0d;transition:transform 0.2s,box-shadow 0.2s;" style-hover="transform:translateY(-2px);box-shadow:0 12px 30px rgba(255,107,44,0.3);">Записаться на выезд</a>
+        </div>
+
+        <div ref="{{ onReveal }}" style="opacity:0;transform:translateY(32px);transition:opacity 0.7s cubic-bezier(0.22,1,0.36,1) 0.1s,transform 0.7s cubic-bezier(0.22,1,0.36,1) 0.1s;">
+          <div style="font-family: 'Bebas Neue',sans-serif; font-size: clamp(1.3rem,2.3vw,1.85rem); color: rgba(255,255,255,0.92); letter-spacing: 0.03em; line-height: 1.3; border-left: 3px solid #ff6b2c; padding-left: 1.6rem; margin-bottom: 1.75rem; max-width: 100%">У нас не про "покататься по кругу",<br>а про настоящее удовольствие от езды.</div>
+          <div style="display:flex;flex-direction:column;gap:0.9rem;">
+            <div style="display:flex;align-items:center;gap:1rem;color:rgba(255,255,255,0.68);font-size:0.95rem;"><span style="width:26px;height:2px;background:#ff6b2c;flex-shrink:0;"></span>Маршрут под ваш уровень, настроение и погоду</div>
+            <div style="display:flex;align-items:center;gap:1rem;color:rgba(255,255,255,0.68);font-size:0.95rem;"><span style="width:26px;height:2px;background:#ff6b2c;flex-shrink:0;"></span>Лес, карьеры, Нева, Богословка — как душа пожелает</div>
+            <div style="display:flex;align-items:center;gap:1rem;color:rgba(255,255,255,0.68);font-size:0.95rem;"><span style="width:26px;height:2px;background:#ff6b2c;flex-shrink:0;"></span>Обучаем с нуля — поедете уверенно и в кайф</div>
+            <div style="display:flex;align-items:center;gap:1rem;color:rgba(255,255,255,0.68);font-size:0.95rem;"><span style="width:26px;height:2px;background:#ff6b2c;flex-shrink:0;"></span>Права не нужны — это спортивный инвентарь</div>
+            <div style="display:flex;align-items:center;gap:1rem;color:rgba(255,255,255,0.68);font-size:0.95rem;"><span style="width:26px;height:2px;background:#ff6b2c;flex-shrink:0;"></span>Фото и видео на память</div>
+          </div>
+        </div>
+      </div><div style="{{ expCardsGridStyle }}">
+        <sc-for list="{{ expCards }}" as="card" hint-placeholder-count="6">
+          <div ref="{{ onReveal }}" style="position:relative;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:20px;padding:2rem;overflow:hidden;transition:opacity 0.6s cubic-bezier(0.22,1,0.36,1),transform 0.6s cubic-bezier(0.22,1,0.36,1),border-color 0.3s,box-shadow 0.3s;opacity:0;" style-hover="border-color:rgba(255,107,44,0.4);box-shadow:0 22px 44px rgba(255,107,44,0.08);">
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:3rem;color:rgba(255,255,255,0.08);position:absolute;top:-0.4rem;right:1.25rem;">{{ card.num }}</div>
+            <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#ff6b2c;margin-bottom:0.75rem;">{{ card.tag }}</div>
+            <h3 style="font-size:1.15rem;font-weight:700;color:#fff;margin:0 0 0.6rem;">{{ card.title }}</h3>
+            <p style="font-size:0.92rem;color:rgba(255,255,255,0.55);line-height:1.6;margin:0;">{{ card.text }}</p>
+          </div>
+        </sc-for>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ROUTES -->
+  <section id="routes" style="background:#13170f;padding:6rem 0;">
+    <div style="width:min(1280px,94vw);margin-inline:auto;">
+      <div ref="{{ onReveal }}" style="margin-bottom:3rem;text-align:center;opacity:0;transform:translateY(32px);transition:opacity 0.7s cubic-bezier(0.22,1,0.36,1),transform 0.7s cubic-bezier(0.22,1,0.36,1);">
+        <p style="font-size:0.78rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#ff6b2c;margin:0 0 0.75rem;">Готовые выезды</p>
+        <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.5rem,6vw,4.2rem);color:#fff;letter-spacing:0.02em;line-height:1;margin:0 0 1rem;">Прохваты</h2>
+        <p style="color:rgba(255,255,255,0.5);max-width:36rem;margin-inline:auto;">Всё включено: мотоцикл, экипировка, вода, инструктор. Права не нужны.</p>
+      </div>
+
+      <div style="{{ routesGridStyle }}">
+        <article ref="{{ onReveal }}" style="position:relative;border-radius:20px;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;min-height:520px;opacity:0;transform:translateY(32px);transition:opacity 0.7s cubic-bezier(0.22,1,0.36,1),transform 0.7s cubic-bezier(0.22,1,0.36,1);">
+          <img loading="lazy" src="gallery-neva.jpg" alt="Прохват до Невы — лесные дороги и выезд к берегу" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;">
+          <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.3) 50%, transparent 100%);"></div>
+          <div style="position:relative;padding:2.5rem;">
+            <span style="display:inline-block;background:rgba(0,0,0,0.7);color:#fff;font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:0.3rem 0.9rem;border-radius:20px;margin-bottom:1rem;backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.15);">3 часа · Любой уровень</span>
+            <h3 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(1.9rem,3vw,2.9rem);color:#fff;letter-spacing:0.03em;line-height:1;margin:0 0 0.75rem;">Прохват до Невы</h3>
+            <p style="color:rgba(255,255,255,0.68);font-size:0.92rem;max-width:42ch;margin:0 0 1.5rem;">Лесные дороги, карьеры, выезд к берегу Невы. Не «по кругу» — настоящий маршрут с атмосферой.</p>
+            <div style="display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;">
+              <span style="font-family:'Bebas Neue',sans-serif;font-size:2.2rem;color:#fff;letter-spacing:0.03em;">9 000 ₽</span>
+              <a href="https://t.me/enduro_energy" target="_blank" rel="noopener noreferrer" style="padding:0.85rem 1.6rem;border-radius:8px;font-weight:700;font-size:0.9rem;background:#ff6b2c;color:#0c0f0d;">Записаться</a>
+            </div>
+          </div>
+        </article>
+
+        <article ref="{{ onReveal }}" style="position:relative;border-radius:20px;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;min-height:520px;opacity:0;transform:translateY(32px);transition:opacity 0.7s cubic-bezier(0.22,1,0.36,1) 0.1s,transform 0.7s cubic-bezier(0.22,1,0.36,1) 0.1s;">
+          <img loading="lazy" src="gallery-bog.jpg" alt="Прохват до Богословки — большой маршрут по лесу" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;">
+          <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.25) 55%, transparent 100%);"></div>
+          <div style="position:relative;padding:2rem;">
+            <span style="display:inline-block;background:rgba(0,0,0,0.7);color:#fff;font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:0.3rem 0.9rem;border-radius:20px;margin-bottom:1rem;backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.15);">5+ часов · Продвинутый</span>
+            <h3 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(1.6rem,2.6vw,2.3rem);color:#fff;letter-spacing:0.03em;line-height:1.1;margin:0 0 0.6rem;">Прохват до Богословки</h3>
+            <p style="color:rgba(255,255,255,0.62);font-size:0.88rem;margin:0 0 1.25rem;">Большое путешествие: лес, карьеры, интересные участки. Для тех, кто хочет наездиться.</p>
+            <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;">
+              <span style="font-family:'Bebas Neue',sans-serif;font-size:1.9rem;color:#fff;letter-spacing:0.03em;">12 000 ₽</span>
+              <a href="https://t.me/enduro_energy" target="_blank" rel="noopener noreferrer" style="padding:0.7rem 1.2rem;border-radius:8px;font-weight:700;font-size:0.85rem;background:#ff6b2c;color:#0c0f0d;">Записаться</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- FLEET -->
+  <section id="fleet" style="background:#0c0f0d;padding:6rem 0 2rem;">
+    <div style="width:min(1280px,94vw);margin-inline:auto;text-align:center;margin-bottom:3rem;">
+      <p ref="{{ onReveal }}" style="font-size:0.78rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#ff6b2c;margin:0 0 0.75rem;opacity:0;transform:translateY(20px);transition:opacity 0.6s ease,transform 0.6s ease;">Техника</p>
+      <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.5rem,6vw,4.2rem);color:#fff;letter-spacing:0.02em;line-height:1;margin:0;">Наш мотопарк</h2>
+    </div>
+
+    <div style="position:relative;overflow:hidden;">
+      <div style="display:flex;transition:transform 0.5s cubic-bezier(0.22,1,0.36,1);transform:{{ bikeTrackTransform }};">
+        <sc-for list="{{ fleetModels }}" as="bike" hint-placeholder-count="4">
+          <div style="{{ fleetSlideGridStyle }}">
+            <div style="padding:4rem 3rem 4rem 6vw;display:flex;flex-direction:column;justify-content:center;border-right:1px solid rgba(255,255,255,0.07);">
+              <div style="font-size:0.75rem;letter-spacing:0.16em;text-transform:uppercase;color:#ff6b2c;margin-bottom:0.6rem;font-weight:700;">{{ bike.spec }}</div>
+              <div style="display:inline-block;background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.55);font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:0.3rem 0.85rem;border-radius:20px;margin-bottom:1.5rem;width:fit-content;">{{ bike.tier }}</div>
+              <h3 style="font-size:clamp(1.8rem,3vw,2.6rem);font-weight:800;color:#fff;letter-spacing:0.01em;line-height:1.05;margin:0 0 1.1rem;">{{ bike.name }}</h3>
+              <p style="color:rgba(255,255,255,0.5);font-size:0.92rem;line-height:1.65;max-width:34ch;margin:0 0 1.75rem;">{{ bike.desc }}</p>
+              <div style="font-family:'Bebas Neue',sans-serif;font-size:2.6rem;color:#fff;letter-spacing:0.03em;line-height:1;">{{ bike.price }}<span style="font-size:0.95rem;color:rgba(255,255,255,0.35);font-family:'DM Sans',sans-serif;font-weight:400;"> / час</span></div>
+              <a href="#pricing" style="margin-top:1.75rem;display:inline-block;width:fit-content;padding:0.85rem 1.6rem;border-radius:8px;font-weight:700;font-size:0.9rem;background:#ff6b2c;color:#0c0f0d;">Выбрать в калькуляторе</a>
+            </div>
+            <div style="position:relative;min-height:460px;overflow:hidden;background:radial-gradient(ellipse 65% 55% at 50% 40%, rgba(255,107,44,0.16) 0%, transparent 70%), radial-gradient(ellipse at center, #181d18 0%, #090c09 100%);display:flex;align-items:center;justify-content:center;">
+              <div style="position:absolute;left:6%;right:6%;bottom:26%;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.14) 20%,rgba(255,255,255,0.14) 80%,transparent);"></div>
+              <div style="position:absolute;left:0;bottom:29%;width:38%;height:2px;background:linear-gradient(90deg,transparent,rgba(255,107,44,0.55));animation:speedLine 2.1s ease-in-out infinite;"></div>
+              <div style="position:absolute;left:0;bottom:23%;width:24%;height:2px;background:linear-gradient(90deg,transparent,rgba(255,107,44,0.3));animation:speedLine 2.1s ease-in-out infinite 0.35s;"></div>
+              <img loading="lazy" src="{{ bike.img }}" alt="{{ bike.name }}" style="position:relative;z-index:2;max-width:82%;max-height:420px;width:auto;height:auto;object-fit:contain;filter:drop-shadow(0 26px 24px rgba(0,0,0,0.65));animation:bikeFloat 3.4s ease-in-out infinite;">
+            </div>
+          </div>
+        </sc-for>
+      </div>
+
+      <button type="button" onClick="{{ bikePrev }}" aria-label="Предыдущий" style="position:absolute;left:1.5rem;top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:50%;background:#fff;border:none;color:#111;font-size:1.3rem;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 24px rgba(0,0,0,0.5);z-index:10;transition:transform 0.2s;" style-hover="transform:translateY(-50%) scale(1.08);">←</button>
+      <button type="button" onClick="{{ bikeNext }}" aria-label="Следующий" style="position:absolute;right:1.5rem;top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:50%;background:#fff;border:none;color:#111;font-size:1.3rem;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 24px rgba(0,0,0,0.5);z-index:10;transition:transform 0.2s;" style-hover="transform:translateY(-50%) scale(1.08);">→</button>
+    </div>
+
+    <div style="display:flex;justify-content:center;gap:0.6rem;padding:1.75rem 0;">
+      <sc-for list="{{ fleetModels }}" as="bike" hint-placeholder-count="4">
+        <span onClick="{{ bike.goTo }}" style="{{ bike.dotStyle }}"></span>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- PRICING CALCULATOR -->
+  <section id="pricing" style="background:#13170f;padding:6rem 0;overflow:hidden;">
+    <div style="width:min(1280px,94vw);margin-inline:auto;">
+
+      <div ref="{{ onReveal }}" style="margin-bottom:3rem;opacity:0;transform:translateY(32px);transition:opacity 0.7s cubic-bezier(0.22,1,0.36,1),transform 0.7s cubic-bezier(0.22,1,0.36,1);">
+        <p style="font-size:0.78rem;letter-spacing:0.16em;text-transform:uppercase;color:#ff6b2c;margin:0 0 1rem;font-weight:700;">Стоимость</p>
+        <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.6rem,7vw,6.5rem);color:#fff;letter-spacing:0.03em;line-height:1;margin:0;">Соберите выезд</h2>
+        <p style="color:rgba(255,255,255,0.50);margin-top:0.75rem;font-size:0.95rem;">Цена обновляется мгновенно — без лишних шагов.</p>
+      </div>
+
+      <div style="{{ calcWrapGridStyle }}">
+
+        <div ref="{{ onReveal }}" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:20px;padding:2.25rem;height:fit-content;position:sticky;top:100px;opacity:0;transform:translateY(32px);transition:opacity 0.7s cubic-bezier(0.22,1,0.36,1),transform 0.7s cubic-bezier(0.22,1,0.36,1);">
+          <div style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.45);margin-bottom:0.5rem;">Ваш выезд</div>
+          <div style="font-size:0.95rem;color:rgba(255,255,255,0.75);margin-bottom:1.25rem;">{{ calcTypeLabel }}</div>
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:3.2rem;color:#fff;letter-spacing:0.02em;line-height:1;margin-bottom:1.5rem;">{{ calcPriceStr }}</div>
+          <div style="height:1px;background:rgba(255,255,255,0.1);margin-bottom:1.5rem;"></div>
+          <div style="display:flex;flex-direction:column;gap:0.75rem;margin-bottom:1.75rem;">
+            <div style="font-size:0.88rem;color:rgba(255,255,255,0.6);">Мотоцикл с полным баком</div>
+            <div style="font-size:0.88rem;color:rgba(255,255,255,0.6);">Экипировка (шлем, джерси, защита)</div>
+            <div style="font-size:0.88rem;color:rgba(255,255,255,0.6);">Вода на маршруте</div>
+            <div style="font-size:0.88rem;color:rgba(255,255,255,0.6);">Инструктор / сопровождение</div>
+          </div>
+          <a href="https://t.me/enduro_energy" target="_blank" rel="noopener noreferrer" style="display:block;text-align:center;padding:1rem;border-radius:10px;font-weight:700;font-size:0.98rem;background:#ff6b2c;color:#0c0f0d;transition:transform 0.2s,box-shadow 0.2s;" style-hover="transform:translateY(-2px);box-shadow:0 14px 30px rgba(255,107,44,0.32);">{{ calcCtaLabel }}</a>
+          <div style="display:flex;flex-direction:column;gap:0.6rem;margin-top:1.5rem;">
+            <div style="display:flex;align-items:center;gap:0.6rem;font-size:0.82rem;color:rgba(255,255,255,0.55);"><span style="background:rgba(255,107,44,0.15);color:#ffab7a;font-weight:700;font-size:0.75rem;padding:0.2rem 0.5rem;border-radius:6px;">−10%</span>По будням 10:00–18:00, от 2 ч</div>
+            <div style="display:flex;align-items:center;gap:0.6rem;font-size:0.82rem;color:rgba(255,255,255,0.55);"><span style="background:rgba(255,107,44,0.15);color:#ffab7a;font-weight:700;font-size:0.75rem;padding:0.2rem 0.5rem;border-radius:6px;">−15%</span>День рождения ±5 дней, по документу</div>
+          </div>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:2.25rem;">
+          <div ref="{{ onReveal }}" style="opacity:0;transform:translateY(32px);transition:opacity 0.7s cubic-bezier(0.22,1,0.36,1) 0.05s,transform 0.7s cubic-bezier(0.22,1,0.36,1) 0.05s;">
+            <div style="display:flex;align-items:center;gap:0.85rem;margin-bottom:1.1rem;">
+              <div style="width:30px;height:30px;border-radius:50%;background:rgba(255,107,44,0.15);color:#ff6b2c;font-weight:700;font-size:0.85rem;display:flex;align-items:center;justify-content:center;">1</div>
+              <div style="font-weight:700;color:#fff;font-size:1.05rem;">Тип катания</div>
+            </div>
+            <div style="{{ calcTypeGridStyle }}">
+              <sc-for list="{{ calcTypes }}" as="t" hint-placeholder-count="6">
+                <button type="button" onClick="{{ t.onClick }}" style="{{ t.btnStyle }}">
+                  <span style="display:block;font-weight:700;font-size:0.98rem;color:#fff;margin-bottom:0.3rem;">{{ t.label }}</span>
+                  <span style="display:block;font-size:0.8rem;color:rgba(255,255,255,0.5);">{{ t.priceLabel }}</span>
+                </button>
+              </sc-for>
+            </div>
+          </div>
+
+          <div style="{{ calcBikeStepStyle }}">
+            <div style="display:flex;align-items:center;gap:0.85rem;margin-bottom:1.1rem;">
+              <div style="width:30px;height:30px;border-radius:50%;background:rgba(255,107,44,0.15);color:#ff6b2c;font-weight:700;font-size:0.85rem;display:flex;align-items:center;justify-content:center;">2</div>
+              <div style="font-weight:700;color:#fff;font-size:1.05rem;">Выбери мотоцикл за 10 сек</div>
+            </div>
+            <div style="{{ calcBikeGridStyle }}">
+              <sc-for list="{{ calcBikes }}" as="b" hint-placeholder-count="4">
+                <button type="button" onClick="{{ b.onClick }}" style="{{ b.btnStyle }}">
+                  <img loading="lazy" src="{{ b.img }}" style="width:100%;height:130px;object-fit:cover;object-position:center 65%;border-radius:10px;margin-bottom:0.75rem;">
+                  <div style="font-size:0.75rem;color:rgba(255,255,255,0.45);text-transform:uppercase;letter-spacing:0.06em;">{{ b.spec }}</div>
+                  <div style="font-weight:700;color:#fff;font-size:0.95rem;margin:0.2rem 0;">{{ b.name }}</div>
+                  <div style="font-size:0.8rem;color:#ffab7a;">{{ b.priceLabel }}</div>
+                </button>
+              </sc-for>
+            </div>
+          </div>
+
+          <div style="{{ calcTimeStepStyle }}">
+            <div style="display:flex;align-items:center;gap:0.85rem;margin-bottom:1.1rem;">
+              <div style="width:30px;height:30px;border-radius:50%;background:rgba(255,107,44,0.15);color:#ff6b2c;font-weight:700;font-size:0.85rem;display:flex;align-items:center;justify-content:center;">3</div>
+              <div style="font-weight:700;color:#fff;font-size:1.05rem;">Время</div>
+            </div>
+            <div style="{{ calcTimeGridStyle }}">
+              <sc-for list="{{ timeOptions }}" as="opt" hint-placeholder-count="4">
+                <button type="button" onClick="{{ opt.onClick }}" style="{{ opt.btnStyle }}">
+                  <span style="display:block;font-family:'Bebas Neue',sans-serif;font-size:1.6rem;color:#fff;">{{ opt.val }}</span>
+                  <span style="display:block;font-size:0.78rem;color:rgba(255,255,255,0.5);">{{ opt.unit }}</span>
+                </button>
+              </sc-for>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SCENARIOS -->
+  <section id="scenarios" style="position:relative;overflow:hidden;min-height:640px;display:flex;align-items:center;">
+    <sc-for list="{{ scenarios }}" as="sc" hint-placeholder-count="4">
+      <div style="{{ sc.bgLayerStyle }}"></div>
+    </sc-for>
+    <div style="position:absolute;inset:0;background:linear-gradient(100deg, rgba(8,10,9,0.96) 0%, rgba(8,10,9,0.85) 45%, rgba(8,10,9,0.55) 100%);"></div>
+
+    <div style="position:relative;z-index:2;width:min(1280px,94vw);margin-inline:auto;padding:5rem 0;">
+      <div style="{{ scenariosInnerGridStyle }}">
+        <div>
+          <div ref="{{ onReveal }}" style="opacity:0;transform:translateY(32px);transition:opacity 0.7s cubic-bezier(0.22,1,0.36,1),transform 0.7s cubic-bezier(0.22,1,0.36,1);">
+            <p style="font-size:0.78rem;letter-spacing:0.16em;text-transform:uppercase;color:#ff6b2c;margin:0 0 1rem;font-weight:700;">Для любого повода</p>
+            <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.5rem,4.5vw,3.9rem);color:#fff;letter-spacing:0.02em;line-height:1;margin:0;">Форматы заездов</h2>
+            <p style="color:rgba(255,255,255,0.50);margin-top:1rem;font-size:0.92rem;max-width:38ch;">Наведи на сценарий — увидишь атмосферу. Любой из них организуем под тебя.</p>
+          </div>
+
+          <div style="display:flex;flex-direction:column;margin-top:2.5rem;border-top:1px solid rgba(255,255,255,0.1);">
+            <sc-for list="{{ scenarios }}" as="sc" hint-placeholder-count="4">
+              <div onMouseEnter="{{ sc.onEnter }}" onClick="{{ sc.onEnter }}" onKeyDown="{{ sc.onEnter }}" role="button" tabindex="0" style="{{ sc.itemStyle }}">
+                <div style="font-family:'Bebas Neue',sans-serif;font-size:1.5rem;color:rgba(255,255,255,0.3);width:2.5rem;flex-shrink:0;">{{ sc.num }}</div>
+                <div>
+                  <div style="font-weight:700;color:#fff;font-size:1.15rem;margin-bottom:0.3rem;">{{ sc.name }}</div>
+                  <div style="font-size:0.88rem;color:rgba(255,255,255,0.55);line-height:1.5;margin-bottom:0.5rem;">{{ sc.desc }}</div>
+                  <div style="font-size:0.8rem;color:#ffab7a;font-weight:600;">{{ sc.tag }}</div>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+
+        <div ref="{{ onReveal }}" style="opacity:0;transform:translateY(32px);transition:opacity 0.7s cubic-bezier(0.22,1,0.36,1) 0.1s,transform 0.7s cubic-bezier(0.22,1,0.36,1) 0.1s;display:flex;align-items:flex-end;justify-content:{{ scenarioCtaJustify }};height:100%;">
+          <a href="https://t.me/enduro_energy" target="_blank" rel="noopener noreferrer" style="display:inline-flex;padding:1.1rem 2.2rem;border-radius:10px;font-weight:700;font-size:1rem;background:#ff6b2c;color:#0c0f0d;transition:transform 0.2s,box-shadow 0.2s;" style-hover="transform:translateY(-2px);box-shadow:0 16px 34px rgba(255,107,44,0.32);">Обсудить сценарий</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section style="background:#000;">
+    <div style="{{ galleryGridStyle }}">
+      <sc-for list="{{ galleryImages }}" as="g" hint-placeholder-count="8">
+        <div style="height:{{ g.h }};overflow:hidden;">
+          <img loading="lazy" src="{{ g.src }}" style="width:100%;height:100%;object-fit:cover;object-position:{{ g.pos }};transition:transform 0.5s ease;" style-hover="transform:scale(1.045);">
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- RIDE VIDEO -->
+  <section style="background:#000;position:relative;overflow:hidden;min-height:100vh;display:flex;align-items:center;">
+    <video ref="{{ setRideVideoRef }}" autoplay muted defaultMuted loop playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+      <source src="riding1.mp4" type="video/mp4"><source src="riding1.mov" type="video/quicktime">
+    </video>
+    <div style="position:absolute;inset:0;background:linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, transparent 25%, transparent 75%, rgba(0,0,0,0.55) 100%);pointer-events:none;"></div>
+  </section>
+
+  <!-- RIDE VIDEO GRID -->
+  <section style="background:#000;">
+    <div style="{{ videoGridStyle }}">
+      <div style="height:340px;overflow:hidden;">
+        <video ref="{{ setRideVideoRef2 }}" autoplay muted defaultMuted loop playsinline style="width:100%;height:100%;object-fit:cover;object-position:center 75%;display:block;">
+          <source src="riding2.mp4" type="video/mp4"><source src="riding2.mov" type="video/quicktime">
+        </video>
+      </div>
+      <div style="height:340px;overflow:hidden;">
+        <video ref="{{ setRideVideoRef2 }}" autoplay muted defaultMuted loop playsinline style="width:100%;height:100%;object-fit:cover;display:block;">
+          <source src="riding3.mp4" type="video/mp4"><source src="riding3.mov" type="video/quicktime">
+        </video>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section id="reviews" style="background:#0c0f0d;padding:6rem 0;">
+    <div style="width:min(1280px,94vw);margin-inline:auto;">
+      <div ref="{{ onReveal }}" style="margin-bottom:2.5rem;text-align:center;opacity:0;transform:translateY(32px);transition:opacity 0.7s cubic-bezier(0.22,1,0.36,1),transform 0.7s cubic-bezier(0.22,1,0.36,1);">
+        <p style="font-size:0.78rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#ff6b2c;margin:0 0 0.75rem;">Отзывы</p>
+        <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.5rem,6vw,4.2rem);color:#fff;letter-spacing:0.02em;line-height:1;margin:0;">Что говорят райдеры</h2>
+      </div>
+
+      <div style="display:flex;align-items:center;gap:1.25rem;flex-wrap:wrap;justify-content:center;padding:1.5rem 2rem;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:16px;margin-bottom:2.5rem;">
+        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="12" fill="#FC3F1D"></circle><path d="M13.32 7.2H12.1c-1.34 0-2.05.63-2.05 1.67 0 1.18.54 1.76 1.65 2.5l.92.62-2.66 4.01H8.5l2.46-3.71c-1.35-.96-2.1-1.88-2.1-3.33 0-1.88 1.3-3.16 3.56-3.16h2.34V16h-1.44V7.2z" fill="white"></path></svg>
+        <div>
+          <div style="display:flex;align-items:center;gap:0.3rem;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="#FC3F1D"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="#FC3F1D"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="#FC3F1D"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="#FC3F1D"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="#FC3F1D"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+            <span style="font-weight:700;color:#fff;margin-left:0.3rem;">5.0</span>
+          </div>
+          <div style="font-size:0.82rem;color:rgba(255,255,255,0.5);">Рейтинг на Яндекс Картах</div>
+        </div>
+        <a href="https://yandex.ru/profile/234965888694" target="_blank" rel="noopener noreferrer" style="margin-left:auto;font-size:0.88rem;font-weight:600;color:#ffab7a;">Все отзывы →</a>
+      </div>
+
+      <div style="{{ reviewsGridStyle }}">
+        <sc-for list="{{ reviews }}" as="r" hint-placeholder-count="3">
+          <div ref="{{ onReveal }}" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:20px;padding:1.75rem;opacity:0;transform:translateY(32px);transition:opacity 0.6s ease,transform 0.6s ease;">
+            <div style="display:flex;gap:0.75rem;align-items:center;margin-bottom:1rem;">
+              <img loading="lazy" src="{{ r.img }}" style="width:44px;height:44px;border-radius:50%;object-fit:cover;">
+              <div>
+                <div style="font-weight:700;color:#fff;">{{ r.name }}</div>
+                <div style="font-size:0.8rem;color:rgba(255,255,255,0.5);">{{ r.tag }}</div>
+              </div>
+            </div>
+            <p style="font-size:0.9rem;color:rgba(255,255,255,0.68);line-height:1.6;margin:0;">{{ r.text }}</p>
+            <div style="margin-top:1rem;color:#ff6b2c;">★★★★★</div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- SAFETY -->
+  <section id="safety" style="background:#13170f;padding:6rem 0;">
+    <div style="width:min(1280px,94vw);margin-inline:auto;">
+      <div ref="{{ onReveal }}" style="margin-bottom:2.5rem;text-align:center;opacity:0;transform:translateY(32px);transition:opacity 0.7s cubic-bezier(0.22,1,0.36,1),transform 0.7s cubic-bezier(0.22,1,0.36,1);">
+        <p style="font-size:0.78rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#ff6b2c;margin:0 0 0.75rem;">Безопасность</p>
+        <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,5vw,3.6rem);color:#fff;letter-spacing:0.02em;line-height:1.05;margin:0;">Это безопасно. Даже если вы первый раз.</h2>
+      </div>
+
+      <div style="{{ safetyGridStyle }}">
+        <sc-for list="{{ safetyItems }}" as="s" hint-placeholder-count="3">
+          <div ref="{{ onReveal }}" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:20px;padding:1.9rem;display:flex;gap:1.1rem;opacity:0;transform:translateY(32px);transition:opacity 0.6s ease,transform 0.6s ease;">
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:1.7rem;color:#ff6b2c;opacity:0.7;flex-shrink:0;">{{ s.num }}</div>
+            <div>
+              <h3 style="color:#fff;font-size:1.05rem;font-weight:700;margin:0 0 0.4rem;">{{ s.title }}</h3>
+              <p style="color:rgba(255,255,255,0.6);font-size:0.9rem;line-height:1.6;margin:0;">{{ s.text }}</p>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" style="background:#0c0f0d;padding:6rem 0;">
+    <div style="width:min(1280px,94vw);margin-inline:auto;">
+      <div ref="{{ onReveal }}" style="margin-bottom:2.5rem;opacity:0;transform:translateY(32px);transition:opacity 0.7s cubic-bezier(0.22,1,0.36,1),transform 0.7s cubic-bezier(0.22,1,0.36,1);">
+        <p style="font-size:0.78rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#ff6b2c;margin:0 0 0.75rem;">Частые вопросы</p>
+        <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,5vw,3.6rem);color:#fff;letter-spacing:0.02em;line-height:1.05;margin:0;">Отвечаем на главные вопросы</h2>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:1rem;max-width:760px;">
+        <sc-for list="{{ faqItems }}" as="f" hint-placeholder-count="6">
+          <details style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:1.25rem 1.5rem;">
+            <summary style="font-weight:700;color:#fff;font-size:1rem;display:flex;justify-content:space-between;align-items:center;">{{ f.q }}<span style="color:#ff6b2c;font-size:1.2rem;">+</span></summary>
+            <p style="color:rgba(255,255,255,0.6);font-size:0.92rem;line-height:1.6;margin:0.9rem 0 0;">{{ f.a }}</p>
+          </details>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOK -->
+  <section id="book" style="background:#13170f;padding:6rem 0;">
+    <div style="width:min(1280px,94vw);margin-inline:auto;">
+      <div style="{{ bookGridStyle }}">
+        <div ref="{{ onReveal }}" style="opacity:0;transform:translateY(32px);transition:opacity 0.7s cubic-bezier(0.22,1,0.36,1),transform 0.7s cubic-bezier(0.22,1,0.36,1);">
+          <p style="font-size:0.78rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#ff6b2c;margin:0 0 0.75rem;">Записаться</p>
+          <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,4vw,3rem);color:#fff;letter-spacing:0.02em;line-height:1.05;margin:0 0 1.5rem;">Напишите нам, ответим быстро.</h2>
+          <div style="display:flex;flex-direction:column;gap:0.7rem;font-size:0.95rem;color:rgba(255,255,255,0.6);">
+            <a href="tel:+79812818454" style="color:rgba(255,255,255,0.75);">📞 8 (981) 281-84-54</a>
+            <a href="https://t.me/enduro_energy" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,0.75);">Telegram: @enduro_energy</a>
+            <a href="https://vk.com/enduro_energy" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,0.75);">ВКонтакте: enduro_energy</a>
+            <a href="https://yandex.ru/profile/234965888694" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,0.75);">Отзывы на Яндекс</a>
+          </div>
+        </div>
+
+        <form
+    action="https://formspree.io/f/ВСТАВЬ_ID_СЮДА"
+    method="POST"
+    onsubmit="(function(e){e.preventDefault();var f=e.target;var data=new FormData(f);fetch(f.action,{method:'POST',body:data,headers:{'Accept':'application/json'}}).then(function(r){if(r.ok){f.style.display='none';var ok=document.getElementById('form-success');if(ok)ok.style.display='flex';}else{alert('Ошибка отправки. Позвоните нам: 8 (981) 281-84-54');}}).catch(function(){alert('Ошибка. Напишите нам в Telegram: @enduro_energy');});})(event)"
+    ref="{{ onReveal }}"
+    style="display:flex;flex-direction:column;gap:1.1rem;padding:2rem;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:20px;opacity:0;transform:translateY(32px);transition:opacity 0.7s cubic-bezier(0.22,1,0.36,1) 0.1s,transform 0.7s cubic-bezier(0.22,1,0.36,1) 0.1s;">
+          <div>
+            <label style="display:block;font-size:0.8rem;color:rgba(255,255,255,0.55);margin-bottom:0.4rem;">Ваше имя</label>
+            <input type="text" name="name" placeholder="Иван" required style="width:100%;padding:0.8rem 1rem;background:#0c0f0d;border:1px solid rgba(255,255,255,0.14);border-radius:8px;color:#fff;">
+          </div>
+          <div>
+            <label style="display:block;font-size:0.8rem;color:rgba(255,255,255,0.55);margin-bottom:0.4rem;">Телефон или Telegram</label>
+            <input type="tel" name="contact" placeholder="+7 или @ник" required style="width:100%;padding:0.8rem 1rem;background:#0c0f0d;border:1px solid rgba(255,255,255,0.14);border-radius:8px;color:#fff;">
+          </div>
+          <div>
+            <label style="display:block;font-size:0.8rem;color:rgba(255,255,255,0.55);margin-bottom:0.4rem;">Маршрут</label>
+            <select name="route" style="width:100%;padding:0.8rem 1rem;background:#0c0f0d;border:1px solid rgba(255,255,255,0.14);border-radius:8px;color:#fff;">
+              <option>Прохват до Невы (3 часа) — 9 000 ₽</option>
+              <option>Прохват до Богословки (5+ часов) — 12 000 ₽</option>
+              <option>Прокат — 1 час</option>
+              <option>Прокат — 2 часа</option>
+              <option>Мальчишник</option>
+              <option>День рождения</option>
+              <option>Семейный день</option>
+              <option>Корпоратив</option>
+              <option>Персональная тренировка</option>
+            </select>
+          </div>
+          <div>
+            <label style="display:block;font-size:0.8rem;color:rgba(255,255,255,0.55);margin-bottom:0.4rem;">Комментарий</label>
+            <textarea name="comment" rows="3" placeholder="Уровень подготовки, пожелания..." style="width:100%;padding:0.8rem 1rem;background:#0c0f0d;border:1px solid rgba(255,255,255,0.14);border-radius:8px;color:#fff;font-family:inherit;"></textarea>
+          </div>
+          <button type="submit" style="width:100%;padding:1rem;border-radius:10px;font-weight:700;font-size:0.98rem;background:#ff6b2c;color:#0c0f0d;border:none;cursor:pointer;">Отправить заявку</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer style="padding:3.5rem 0 2rem;border-top:1px solid rgba(255,255,255,0.08);background:#0c0f0d;">
+  <div style="width:min(1280px,94vw);margin-inline:auto;">
+    <div style="{{ footerGridStyle }}">
+      <div>
+        <img loading="lazy" src="logo.png" alt="Enduro Energy" style="height:58px;width:auto;object-fit:contain;margin-bottom:0.9rem;">
+        <p style="font-size:0.85rem;color:rgba(255,255,255,0.5);line-height:1.6;max-width:32ch;">Прокат и обучение эндуро для новичков и опытных райдеров. 20 минут от м. Дыбенко, рядом с Санкт-Петербургом.</p>
+      </div>
+      <div>
+        <p style="font-weight:700;color:#fff;margin:0 0 1rem;">Навигация</p>
+        <div style="display:flex;flex-direction:column;gap:0.6rem;">
+          <a href="#routes" style="font-size:0.9rem;color:rgba(255,255,255,0.55);">Прохваты</a>
+          <a href="#trust" style="font-size:0.9rem;color:rgba(255,255,255,0.55);">Почему мы</a>
+          <a href="#fleet" style="font-size:0.9rem;color:rgba(255,255,255,0.55);">Мотоциклы</a>
+          <a href="#faq" style="font-size:0.9rem;color:rgba(255,255,255,0.55);">Вопросы</a>
+          <a href="https://t.me/enduro_energy" target="_blank" rel="noopener noreferrer" style="font-size:0.9rem;color:rgba(255,255,255,0.55);">Записаться</a>
+        </div>
+      </div>
+      <div>
+        <p style="font-weight:700;color:#fff;margin:0 0 1rem;">Контакты</p>
+        <div style="display:flex;flex-direction:column;gap:0.6rem;">
+          <a href="tel:+79812818454" style="font-size:0.9rem;color:rgba(255,255,255,0.55);">8 (981) 281-84-54</a>
+          <a href="https://t.me/enduro_energy" style="font-size:0.9rem;color:rgba(255,255,255,0.55);">Telegram: @enduro_energy</a>
+          <a href="https://vk.com/enduro_energy" style="font-size:0.9rem;color:rgba(255,255,255,0.55);">ВКонтакте</a>
+          <span style="font-size:0.9rem;color:rgba(255,255,255,0.55);">20 минут от м. Дыбенко</span>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.5rem;padding-top:1.75rem;">
+      <p style="font-size:0.75rem;color:rgba(255,255,255,0.4);margin:0;">© 2026 Enduro Energy</p>
+      <p style="font-size:0.75rem;color:rgba(255,255,255,0.4);margin:0;">Прокат эндуро · 20 мин от м. Дыбенко</p>
+    </div>
+  </div>
+</footer>
+
+<a href="https://t.me/enduro_energy" target="_blank" rel="noopener noreferrer" aria-label="Написать в Telegram" style="position:fixed;bottom:1.5rem;left:1.5rem;width:52px;height:52px;border-radius:50%;background:rgba(39,167,231,0.85);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(0,0,0,0.3);z-index:90;transition:transform 0.2s,box-shadow 0.2s;" style-hover="transform:translateY(-2px);box-shadow:0 10px 24px rgba(0,0,0,0.35);">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"></path></svg>
+</a>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = {
+    mobileOpen: false,
+    narrow: false,
+    calcType: 'rental',
+    calcBikeName: 'Kayo K1 250',
+    calcBikePrices: [3500, 6000, 9000, 12000],
+    calcTimeIdx: 0,
+    bikeIdx: 0,
+    scenario: 'bachelor',
+  };
+
+  componentDidMount() {
+    this._onScroll = () => {
+      const y = window.scrollY;
+      const scrolled = y > 40;
+      if (this.headerEl) {
+        this.headerEl.style.background = scrolled ? 'rgba(10,13,11,0.92)' : 'transparent';
+        this.headerEl.style.backdropFilter = scrolled ? 'blur(14px)' : 'none';
+        this.headerEl.style.borderBottom = scrolled ? '1px solid rgba(255,255,255,0.08)' : '1px solid transparent';
+      }
+      if (this.progressEl) {
+        const max = document.documentElement.scrollHeight - window.innerHeight;
+        const pct = max > 0 ? Math.min(100, Math.max(0, (y / max) * 100)) : 0;
+        this.progressEl.style.width = pct + '%';
+      }
+    };
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+    this._onScroll();
+
+    this._onResize = () => this.setState({ narrow: window.innerWidth < 880 });
+    window.addEventListener('resize', this._onResize);
+    this._onResize();
+  }
+
+  componentWillUnmount() {
+    if (this._onScroll) window.removeEventListener('scroll', this._onScroll);
+    if (this._onResize) window.removeEventListener('resize', this._onResize);
+    if (this._io) this._io.disconnect();
+    if (this._countIo) this._countIo.disconnect();
+    if (this._videoIo) this._videoIo.disconnect();
+  }
+
+  setHeaderRef = (el) => { this.headerEl = el; };
+  setRideVideoRef = (el) => {
+    if (!el) return;
+    el.muted = true;
+    el.volume = 0;
+    const tryPlay = () => el.play().catch(() => {});
+    tryPlay();
+    this._watchVideoVisibility(el);
+  };
+
+  _watchVideoVisibility = (el) => {
+    this._videoIo = this._videoIo || new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.play().catch(() => {});
+        else entry.target.pause();
+      });
+    }, { threshold: 0.15 });
+    this._videoIo.observe(el);
+  };
+  _pairVideos = [];
+  setRideVideoRef2 = (el) => {
+    if (!el) return;
+    el.muted = true;
+    el.volume = 0;
+    if (!this._pairVideos.includes(el)) this._pairVideos.push(el);
+    const tryPlay = () => {
+      // sync both clips to start together once both are ready
+      if (this._pairVideos.length >= 2) {
+        this._pairVideos.forEach((v) => { v.currentTime = 0; });
+      }
+      el.play().catch(() => {});
+    };
+    if (el.readyState >= 2) tryPlay(); else el.addEventListener('loadeddata', tryPlay, { once: true });
+    this._watchVideoVisibility(el);
+  };
+  statsBoxRef = (el) => { this.onStatsRef(el); this.onReveal(el); };
+  setProgressRef = (el) => { this.progressEl = el; };
+
+  onReveal = (el) => {
+    if (!el) return;
+    this._observed = this._observed || new WeakSet();
+    if (this._observed.has(el)) return;
+    this._observed.add(el);
+    this._io = this._io || new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+          this._io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.14, rootMargin: '0px 0px -60px 0px' });
+    this._io.observe(el);
+  };
+
+  onStatsRef = (el) => {
+    if (!el || this._statsObserved) return;
+    this._statsObserved = true;
+    this._countIo = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.querySelectorAll('[data-count-target]').forEach((node) => {
+          const end = +node.getAttribute('data-count-target');
+          const dur = 1400;
+          let t0 = null;
+          const tick = (ts) => {
+            if (!t0) t0 = ts;
+            const p = Math.min((ts - t0) / dur, 1);
+            const ease = 1 - Math.pow(1 - p, 3);
+            node.textContent = Math.floor(ease * end);
+            if (p < 1) requestAnimationFrame(tick); else node.textContent = String(end);
+          };
+          requestAnimationFrame(tick);
+        });
+        this._countIo.unobserve(entry.target);
+      });
+    }, { threshold: 0.35 });
+    this._countIo.observe(el);
+  };
+
+  toggleMobile = () => this.setState((s) => ({ mobileOpen: !s.mobileOpen }));
+  closeMobile = () => this.setState({ mobileOpen: false });
+
+  setCalcType = (type) => this.setState({ calcType: type });
+  setCalcBike = (name, prices) => this.setState({ calcBikeName: name, calcBikePrices: prices });
+  setCalcTime = (idx) => this.setState({ calcTimeIdx: idx });
+
+  bikePrev = () => this.setState((s) => ({ bikeIdx: (s.bikeIdx + 3) % 4 }));
+  bikeNext = () => this.setState((s) => ({ bikeIdx: (s.bikeIdx + 1) % 4 }));
+  bikeGoTo = (i) => this.setState({ bikeIdx: i });
+
+  setScenario = (key) => this.setState({ scenario: key });
+
+  renderVals() {
+    const s = this.state;
+    const narrow = s.narrow;
+
+    const navLinksRowStyle = {
+      display: narrow ? 'none' : 'flex',
+      alignItems: 'center',
+      gap: '2rem',
+      listStyle: 'none',
+      margin: 0,
+      padding: 0,
+    };
+    const navToggleStyle = {
+      display: narrow ? 'flex' : 'none',
+      flexDirection: 'column',
+      gap: '5px',
+      background: 'none',
+      border: 'none',
+      cursor: 'pointer',
+      padding: '4px',
+    };
+    const mobileMenuStyle = {
+      display: (narrow && s.mobileOpen) ? 'flex' : 'none',
+      position: 'fixed',
+      inset: '76px 0 0 0',
+      background: 'rgba(9,11,10,0.98)',
+      backdropFilter: 'blur(16px)',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center',
+      gap: '2rem',
+      fontSize: '1.3rem',
+      zIndex: 99,
+    };
+
+    const twoColGrid = (gap) => ({ display: 'grid', gridTemplateColumns: narrow ? '1fr' : '1fr 1fr', gap: gap });
+    const threeColGrid = (gap) => ({ display: 'grid', gridTemplateColumns: narrow ? '1fr' : 'repeat(3, 1fr)', gap: gap });
+
+    const statsGridStyle = {
+      display: 'grid', gridTemplateColumns: narrow ? 'repeat(1, 1fr)' : 'repeat(3, 1fr)',
+      border: '1px solid rgba(255,255,255,0.1)', borderRadius: '20px', overflow: 'hidden', marginBottom: '4.5rem',
+      opacity: 0, transform: 'translateY(32px)',
+      transition: 'opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1)',
+    };
+    const expMainGridStyle = { display: 'grid', gridTemplateColumns: narrow ? '1fr' : '1fr 1fr', gap: narrow ? '2.5rem' : '5rem', alignItems: 'start', marginBottom: '4.5rem' };
+    const expCardsGridStyle = threeColGrid('1.5rem');
+    const routesGridStyle = { display: 'grid', gridTemplateColumns: narrow ? '1fr' : '1.6fr 1fr', gap: '1.5rem' };
+    const fleetSlideGridStyle = {
+      display: 'grid', gridTemplateColumns: narrow ? 'minmax(0,1fr)' : '420px minmax(0,1fr)',
+      minWidth: '100%', minHeight: '560px', flexShrink: 0,
+    };
+    const calcWrapGridStyle = { display: 'grid', gridTemplateColumns: narrow ? '1fr' : '380px 1fr', gap: '2.5rem', alignItems: 'start' };
+    const calcTypeGridStyle = { display: 'grid', gridTemplateColumns: narrow ? '1fr 1fr' : 'repeat(3, 1fr)', gap: '0.75rem' };
+    const calcBikeGridStyle = { display: 'grid', gridTemplateColumns: narrow ? 'repeat(2, 1fr)' : 'repeat(4, 1fr)', gap: '0.9rem' };
+    const calcTimeGridStyle = { display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '0.75rem' };
+    const scenariosInnerGridStyle = { display: 'grid', gridTemplateColumns: narrow ? '1fr' : '1.5fr 1fr', gap: '3rem' };
+    const galleryGridStyle = { display: 'grid', gridTemplateColumns: narrow ? 'repeat(2, 1fr)' : 'repeat(4, 1fr)', gap: '3px' };
+    const reviewsGridStyle = threeColGrid('1.25rem');
+    const safetyGridStyle = threeColGrid('1.25rem');
+    const footerGridStyle = { display: 'grid', gridTemplateColumns: narrow ? '1fr' : 'repeat(3, 1fr)', gap: '2rem', paddingBottom: '2.5rem', borderBottom: '1px solid rgba(255,255,255,0.08)' };
+    const bookGridStyle = twoColGrid('4rem');
+    const videoGridStyle = { display: 'grid', gridTemplateColumns: narrow ? 'repeat(1,1fr)' : 'repeat(2, 1fr)', gap: '3px' };
+
+    // urgency hook
+    const now = new Date();
+    const day = now.getDay();
+    const isWeekendish = day === 0 || day === 5 || day === 6;
+    const slotsLeft = 2 + (now.getDate() % 5);
+    const slotsMod10 = slotsLeft % 10;
+    const slotsMod100 = slotsLeft % 100;
+    let slotsWord;
+    if (slotsMod100 >= 11 && slotsMod100 <= 14) slotsWord = 'мест';
+    else if (slotsMod10 === 1) slotsWord = 'место';
+    else if (slotsMod10 >= 2 && slotsMod10 <= 4) slotsWord = 'места';
+    else slotsWord = 'мест';
+    const urgencyText = isWeekendish
+      ? `Осталось ${slotsLeft} ${slotsWord} на эти выходные`
+      : 'Свободные слоты на ближайшие выходные';
+
+    // fleet models
+    const fleetData = [
+      { tier: 'Начальный', spec: 'Питбайк · 125 куб', name: 'KAYO 125', desc: 'Лёгкий и безопасный. Для детей от 7 лет и тех, кто впервые садится на мотоцикл.', price: '2 500 ₽', img: 'bike-pitbike-black.png' },
+      { tier: 'Новичок', spec: 'Эндуро · 250 куб', name: 'KAYO K1 250', desc: 'Манёвренный и лёгкий. Идеален для новичков и лесных маршрутов любой сложности.', price: '3 500 ₽', img: 'bike2-black.png' },
+      { tier: 'Универсал', spec: 'Эндуро · 250 куб', name: 'KAYO K2 250', desc: 'Универсальный вариант для маршрутов любой сложности. Хорош и на трассе, и в лесу.', price: '3 500 ₽', img: 'bike3-black.png' },
+      { tier: 'Продвинутый', spec: 'Эндуро · 300 куб', name: 'PROGASSI 300', desc: 'Мощная техника для опытных райдеров. Максимум адреналина на сложном off-road.', price: '4 000 ₽', img: 'bike4-black.png' },
+    ];
+    const fleetModels = fleetData.map((b, i) => ({
+      ...b,
+      goTo: () => this.bikeGoTo(i),
+      dotStyle: {
+        display: 'inline-block', width: '9px', height: '9px', borderRadius: '50%', cursor: 'pointer',
+        background: i === s.bikeIdx ? '#ff6b2c' : 'rgba(255,255,255,0.25)',
+        transition: 'background 0.2s',
+      },
+    }));
+    const bikeTrackTransform = `translateX(-${s.bikeIdx * 100}%)`;
+
+    // calculator
+    const calcTypesData = [
+      { key: 'rental', label: 'Прокат', priceLabel: 'от 2 500 ₽/ч' },
+      { key: 'neva', label: 'До Невы', priceLabel: '9 000 ₽ · 3 часа' },
+      { key: 'bog', label: 'До Богословки', priceLabel: '12 000 ₽ · 5+ часов' },
+      { key: 'quad', label: 'Прокат квадроцикла', priceLabel: 'от 3 500 ₽/ч' },
+      { key: 'training', label: 'Тренировка', priceLabel: 'от 4 600 ₽/ч' },
+      { key: 'subscription', label: 'Абонемент', priceLabel: '10 занятий · 40 000 ₽' },
+    ];
+    const calcTypes = calcTypesData.map((t) => ({
+      ...t,
+      onClick: () => this.setCalcType(t.key),
+      btnStyle: {
+        padding: '1rem', borderRadius: '12px', textAlign: 'left', cursor: 'pointer',
+        background: s.calcType === t.key ? 'rgba(255,107,44,0.14)' : 'rgba(255,255,255,0.04)',
+        border: s.calcType === t.key ? '1px solid #ff6b2c' : '1px solid rgba(255,255,255,0.1)',
+        transition: 'border-color 0.2s, background 0.2s',
+      },
+    }));
+
+    const calcBikesData = [
+      { name: 'Kayo 125 (питбайк)', img: 'bike-pitbike.jpg', spec: 'Питбайк · 125 куб', priceLabel: 'от 2 500 ₽', prices: [2500, 4500, 6000, 9000] },
+      { name: 'Kayo K1 250', img: 'bike-k1.jpg', spec: 'Эндуро · 250 куб', priceLabel: 'от 3 500 ₽', prices: [3500, 6000, 9000, 12000] },
+      { name: 'Kayo K2 250', img: 'bike-k2.jpg', spec: 'Эндуро · 250 куб', priceLabel: 'от 3 500 ₽', prices: [3500, 6000, 9000, 12000] },
+      { name: 'Progassi 300', img: 'bike-progassi.jpg', spec: 'Эндуро · 300 куб', priceLabel: 'от 4 000 ₽', prices: [4000, 7000, 10000, 13000] },
+    ];
+    const calcBikes = calcBikesData.map((b) => ({
+      ...b,
+      onClick: () => this.setCalcBike(b.name, b.prices),
+      btnStyle: {
+        padding: '1rem', borderRadius: '14px', cursor: 'pointer', textAlign: 'left',
+        background: s.calcBikeName === b.name ? 'rgba(255,107,44,0.14)' : 'rgba(255,255,255,0.04)',
+        border: s.calcBikeName === b.name ? '1px solid #ff6b2c' : '1px solid rgba(255,255,255,0.1)',
+        transition: 'border-color 0.2s, background 0.2s',
+      },
+    }));
+
+    const isTraining = s.calcType === 'training';
+    const timeLabels = isTraining ? ['1 час', '1,5 часа', '2 часа'] : ['1 час', '2 часа', '3 часа', '4+ часа'];
+    const timeVals = isTraining ? ['1', '1,5', '2'] : ['1', '2', '3', '4+'];
+    const timeUnits = isTraining ? ['час', 'часа', 'часа'] : ['час', 'часа', 'часа', 'часа'];
+    const timeIdx = Math.min(s.calcTimeIdx, timeLabels.length - 1);
+    const timeOptions = timeLabels.map((label, i) => ({
+      val: timeVals[i],
+      unit: timeUnits[i],
+      onClick: () => this.setCalcTime(i),
+      btnStyle: {
+        padding: '0.9rem 0.5rem', borderRadius: '12px', textAlign: 'center', cursor: 'pointer',
+        background: timeIdx === i ? 'rgba(255,107,44,0.14)' : 'rgba(255,255,255,0.04)',
+        border: timeIdx === i ? '1px solid #ff6b2c' : '1px solid rgba(255,255,255,0.1)',
+        transition: 'border-color 0.2s, background 0.2s',
+      },
+    }));
+    const calcTimeGridStyleDynamic = { display: 'grid', gridTemplateColumns: `repeat(${timeLabels.length}, 1fr)`, gap: '0.75rem' };
+
+    let price, calcTypeLabel;
+    if (s.calcType === 'neva') {
+      price = 9000; calcTypeLabel = 'Прохват до Невы · 3 часа';
+    } else if (s.calcType === 'bog') {
+      price = 12000; calcTypeLabel = 'Прохват до Богословки · 5+ часов';
+    } else if (s.calcType === 'quad') {
+      const quadPrices = [3500, 6000, 9000, 12000];
+      price = quadPrices[timeIdx];
+      calcTypeLabel = 'Прокат квадроцикла · ' + timeLabels[timeIdx];
+    } else if (s.calcType === 'training') {
+      const trainingPrices = [4600, 6000, 8000];
+      price = trainingPrices[timeIdx];
+      calcTypeLabel = 'Персональная тренировка · ' + timeLabels[timeIdx];
+    } else if (s.calcType === 'subscription') {
+      price = 40000;
+      calcTypeLabel = 'Абонемент · 10 занятий';
+    } else {
+      price = s.calcBikePrices[timeIdx];
+      calcTypeLabel = 'Прокат · ' + s.calcBikeName + ' · ' + timeLabels[timeIdx];
+    }
+    const calcPriceStr = price ? price.toLocaleString('ru-RU') + ' ₽' : 'Уточним';
+    const calcCtaLabel = price ? 'Забронировать за ' + calcPriceStr + ' →' : 'Уточнить цену →';
+    const showBikeStep = s.calcType === 'rental';
+    const calcBikeStepStyle = { display: showBikeStep ? 'block' : 'none' };
+    const showSubscriptionNote = s.calcType === 'training';
+    const showTimeStep = s.calcType !== 'neva' && s.calcType !== 'bog' && s.calcType !== 'subscription';
+    const calcTimeStepStyle = { display: showTimeStep ? 'block' : 'none' };
+
+    // scenarios
+    const scenariosData = [
+      { key: 'bachelor', num: '01', name: 'Мальчишник', desc: 'Незабываемый старт нового этапа: адреналин, лес, грязь и компания своих.', tag: '→ Скидка при группе от 3 человек', img: 'sc-bachelor-new.jpg' },
+      { key: 'birthday', num: '02', name: 'День рождения', desc: 'Отметь так, чтобы запомнили все. Скидка 15% имениннику.', tag: '→ −15% в течение 5 дней до и после ДР', img: 'g8.jpg', pos: 'center 68%' },
+      { key: 'family', num: '03', name: 'Семейный день', desc: 'Кто-то катается, кто-то ждёт с пледом — здорово провести время вместе может каждый.', tag: '→ Дети от 7 лет на питбайке', img: 'sc-family-new.jpg' },
+      { key: 'corp', num: '04', name: 'Корпоратив', desc: 'Тимбилдинг на природе. Адреналин объединяет лучше, чем банкет.', tag: '→ Группы до 20 человек, счёт для юрлиц', img: 'g6.jpg' },
+      { key: 'date', num: '05', name: 'Свидание', desc: 'Необычный формат для двоих: адреналин и новые эмоции вместо привычного ужина.', tag: '→ Романтичный маршрут на закат', img: 'g5.jpg' },
+    ];
+    const scenarios = scenariosData.map((sc) => ({
+      ...sc,
+      onEnter: () => this.setScenario(sc.key),
+      bgLayerStyle: {
+        position: 'absolute', inset: 0, backgroundImage: `url('${sc.img}')`, backgroundSize: 'cover', backgroundPosition: sc.pos || 'center',
+        opacity: s.scenario === sc.key ? 1 : 0, transition: 'opacity 0.8s ease',
+      },
+      itemStyle: {
+        display: 'flex', gap: '1.1rem', padding: '1.35rem 0', borderBottom: '1px solid rgba(255,255,255,0.1)', cursor: 'pointer',
+        opacity: s.scenario === sc.key ? 1 : 0.55, transition: 'opacity 0.3s ease',
+      },
+    }));
+
+    // gallery
+    const galleryData = [
+      { src: 'g1.jpg', pos: 'center 30%' }, { src: 'g2.jpg', pos: 'center 55%' },
+      { src: 'g3.jpg', pos: 'center 50%' }, { src: 'g4.jpg', pos: 'center 50%' },
+      { src: 'gallery-slot5.jpg', pos: 'center 30%' }, { src: 'g6.jpg', pos: 'center 25%' },
+      { src: 'g7.jpg', pos: 'center 30%' }, { src: 'route-neva-new.jpg', pos: 'center 45%' },
+    ];
+    const galleryImages = galleryData.map((g) => ({ ...g, h: narrow ? '260px' : '440px' }));
+
+    // reviews
+    const reviews = [
+      { img: 'review1.jpg', name: 'Алексей К.', tag: 'Прохват до Невы', text: 'Прохват до Невы — это огонь. Организация на высшем уровне, техника в отличном состоянии. Уже планируем следующую поездку!' },
+      { img: 'review2.jpg', name: 'Михаил Д.', tag: 'Прохват до Богословки', text: 'Первый раз на эндуро — думал будет страшно. Инструктор объяснил, ехали в комфортном темпе. Богословка — красота! Теперь хочу на сложный маршрут.' },
+      { img: 'review3.jpg', name: 'Сергей В.', tag: 'Персональная тренировка', text: 'Взял персональную тренировку — инструктор разобрал технику от основ до продвинутых элементов. За 2 часа прогресс был виден сразу. Рекомендую всем кто хочет расти.' },
+    ];
+
+    // safety
+    const safetyItems = [
+      { num: '01', title: 'Страховка включена', text: 'Каждый участник застрахован. Катаетесь спокойно — мы взяли риски на себя.' },
+      { num: '02', title: 'Инструктор рядом', text: 'Едем в комфортном темпе. Инструктор всегда в группе — никто не остаётся один.' },
+      { num: '03', title: 'Полная экипировка', text: 'Шлем, защита спины, колен и локтей. Выдаём бесплатно — ничего покупать не нужно.' },
+    ];
+
+    // faq
+    const faqItems = [
+      { q: 'Нужны ли права для езды на эндуро?', a: 'На наших закрытых трассах и маршрутах права не требуются. Для выезда на дороги общего пользования нужна категория А.' },
+      { q: 'Можно ли без опыта?', a: 'Да, у нас есть маршруты специально для новичков. Инструктор проведёт базовый инструктаж перед поездкой — обычно хватает 30 минут чтобы уверенно тронуться.' },
+      { q: 'Что входит в стоимость?', a: 'Аренда мотоцикла, экипировка (шлем, защита, форма), сопровождение инструктора и страховка. Топливо включено.' },
+      { q: 'Как далеко от Санкт-Петербурга?', a: 'Мы находимся в деревне Хаппа-Ое — примерно 45 минут от КАД. Точный адрес и маршрут пришлём после записи.' },
+      { q: 'С какого возраста можно?', a: 'С 16 лет самостоятельно, до 16 — только с письменного согласия родителей и в их присутствии.' },
+      { q: 'Что взять с собой?', a: 'Удобную одежду которую не жалко испачкать, закрытую обувь и хорошее настроение. Всё остальное мы предоставим.' },
+    ];
+
+    // experience cards
+    const expCards = [
+      { num: '01', tag: 'Подход', title: 'Индивидуально', text: 'Учитываем ваш уровень, рост и настроение. Новичок или опытный — подберём мотоцикл и маршрут под вас.' },
+      { num: '02', tag: 'Обучение', title: 'С нуля до уверенной езды', text: 'Никогда не сидели на мотоцикле? Наш инструктор поставит на ход за первые 30 минут.' },
+      { num: '03', tag: 'Маршруты', title: 'Не по кругу', text: 'Реальные маршруты: лес, карьеры, до Невы и Богословки. Каждый раз новые ощущения.' },
+      { num: '04', tag: 'Всё включено', title: 'Приехал — поехал', text: 'Мотоцикл с полным баком, шлем, джерси, защита рук и ног, вода. Ничего покупать не нужно.' },
+      { num: '05', tag: 'Безопасность', title: 'Инструктор на маршруте', text: 'Едем в комфортном темпе. Инструктор всегда рядом — никто не остаётся один.' },
+      { num: '06', tag: 'Сообщество', title: 'Своя атмосфера', text: 'Дружеская компания, фото и видео, единомышленники. После первого раза хочется вернуться.' },
+    ];
+
+    const scenarioCtaJustify = narrow ? 'flex-start' : 'flex-end';
+
+    return {
+      setHeaderRef: this.setHeaderRef,
+      setRideVideoRef: this.setRideVideoRef,
+      setRideVideoRef2: this.setRideVideoRef2,
+      setProgressRef: this.setProgressRef,
+      onReveal: this.onReveal,
+      onStatsRef: this.onStatsRef,
+      statsBoxRef: this.statsBoxRef,
+      toggleMobile: this.toggleMobile,
+      closeMobile: this.closeMobile,
+      navLinksRowStyle, navToggleStyle, mobileMenuStyle,
+      urgencyText,
+      statsGridStyle, expMainGridStyle, expCardsGridStyle, expCards,
+      routesGridStyle,
+      fleetModels, fleetSlideGridStyle, bikeTrackTransform,
+      bikePrev: this.bikePrev, bikeNext: this.bikeNext,
+      calcWrapGridStyle, calcTypeGridStyle, calcBikeGridStyle, calcTimeGridStyle: calcTimeGridStyleDynamic,
+      calcTypes, calcBikes, timeOptions, calcBikeStepStyle, calcTimeStepStyle,
+      calcTypeLabel, calcPriceStr, calcCtaLabel,
+      scenarios, scenariosInnerGridStyle, scenarioCtaJustify,
+      galleryImages, galleryGridStyle,
+      reviews, reviewsGridStyle,
+      safetyItems, safetyGridStyle,
+      faqItems,
+      bookGridStyle,
+      videoGridStyle,
+      footerGridStyle,
+    };
+  }
+}
+
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Enduro Energy",
+  "description": "Прокат и обучение эндуро для новичков и опытных райдеров. 20 минут от м. Дыбенко.",
+  "url": "https://christina25031995.github.io/nordtrail-enduro/",
+  "telephone": "+79812818454",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Санкт-Петербург",
+    "addressRegion": "Ленинградская область",
+    "addressCountry": "RU"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "59.8",
+    "longitude": "30.5"
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    "opens": "09:00",
+    "closes": "21:00"
+  },
+  "priceRange": "₽₽",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5.0",
+    "reviewCount": "3"
+  },
+  "sameAs": [
+    "https://t.me/enduro_energy",
+    "https://vk.com/enduro_energy"
+  ]
+}
+</script>
+</body>
+</html>
