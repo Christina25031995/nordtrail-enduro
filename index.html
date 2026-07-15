@@ -1,28 +1,14 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html>
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="./support.js"></script>
 </head>
 <body>
 <x-dc>
-<a href="#top" style="position:absolute;top:-100px;left:0;background:#ff6b2c;color:#0c0f0d;padding:0.5rem 1rem;font-weight:700;font-size:0.9rem;border-radius:0 0 8px 0;z-index:999;transition:top 0.2s;" onfocus="this.style.top='0'" onblur="this.style.top='-100px'">Перейти к содержимому</a>
 <helmet>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Прокат и обучение эндуро в Ленинградской области. 20 минут от м. Дыбенко. Мотоцикл, экипировка, маршрут и инструктор — всё включено. Права не нужны.">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Enduro Energy — эндуро туры и прокат рядом с СПб">
-  <meta property="og:description" content="Прокат эндуро, прохваты до Невы и Богословки. Для новичков и опытных райдеров. 20 мин от м. Дыбенко, Ленинградская область.">
-  <meta property="og:image" content="https://christina25031995.github.io/nordtrail-enduro/hero.jpg">
-  <meta property="og:url" content="https://christina25031995.github.io/nordtrail-enduro/">
-  <meta property="og:locale" content="ru_RU">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Enduro Energy — эндуро туры рядом с СПб">
-  <meta name="twitter:description" content="Прокат эндуро, прохваты до Невы и Богословки. 20 мин от м. Дыбенко.">
-  <meta name="twitter:image" content="https://christina25031995.github.io/nordtrail-enduro/hero.jpg">
-  <link rel="canonical" href="https://christina25031995.github.io/nordtrail-enduro/">
-  <link rel="icon" href="logo.png" type="image/png">
-  <link rel="preload" as="video" href="hero.mp4" type="video/mp4">
   <title>Enduro Energy — эндуро туры и прокат рядом с СПб</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
@@ -42,6 +28,10 @@
     @keyframes heroZoom { 0% { transform: scale(1.02); } 100% { transform: scale(1.12); } }
     @keyframes spinSlow { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
     @keyframes bikeFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+    @keyframes emoBlob1 { 0%, 100% { transform: translate(-20%, -30%) scale(1); } 50% { transform: translate(15%, 10%) scale(1.35); } }
+    @keyframes emoBlob2 { 0%, 100% { transform: translate(25%, 20%) scale(1.2); } 50% { transform: translate(-15%, -20%) scale(0.9); } }
+    @keyframes emoGrain { 0% { background-position: 0 0; } 100% { background-position: 120px 80px; } }
+    @keyframes emoText { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
     @keyframes speedLine { 0% { transform: translateX(-120%); opacity: 0; } 15% { opacity: 1; } 85% { opacity: 1; } 100% { transform: translateX(340%); opacity: 0; } }
   </style>
 </helmet>
@@ -66,11 +56,11 @@
       <li><a href="#routes" style="font-size:0.92rem;color:rgba(245,242,234,0.75);">Прохваты</a></li>
       <li><a href="#fleet" style="font-size:0.92rem;color:rgba(245,242,234,0.75);">Мотоциклы</a></li>
       <li><a href="#pricing" style="font-size:0.92rem;color:rgba(245,242,234,0.75);">Цены</a></li>
-      <li><a href="#scenarios" style="font-size:0.92rem;color:rgba(245,242,234,0.75);">Сценарии</a></li>
-      <li><a href="https://t.me/enduro_energy" target="_blank" rel="noopener noreferrer" style="padding:0.6rem 1.2rem;background:#ff6b2c;color:#0c0f0d !important;border-radius:8px;font-weight:700;font-size:0.9rem;" style-hover="transform:translateY(-1px);box-shadow:0 10px 26px rgba(255,107,44,0.35);">Записаться</a></li>
+      <li><a href="#scenarios" style="font-size:0.92rem;color:rgba(245,242,234,0.75);">Выезды</a></li>
+      <li><a href="https://t.me/enduro_energy" target="_blank" style="padding:0.6rem 1.2rem;background:#ff6b2c;color:#0c0f0d !important;border-radius:8px;font-weight:700;font-size:0.9rem;" style-hover="transform:translateY(-1px);box-shadow:0 10px 26px rgba(255,107,44,0.35);">Записаться</a></li>
     </ul>
 
-    <button type="button" aria-label="Открыть меню" onClick="{{ toggleMobile }}" style="{{ navToggleStyle }}">
+    <button aria-label="Открыть меню" onClick="{{ toggleMobile }}" style="{{ navToggleStyle }}">
       <span style="display:block;width:24px;height:2px;background:#fff;"></span>
       <span style="display:block;width:24px;height:2px;background:#fff;"></span>
       <span style="display:block;width:24px;height:2px;background:#fff;"></span>
@@ -83,8 +73,8 @@
   <a href="#routes" onClick="{{ closeMobile }}" style="color:#fff;">Прохваты</a>
   <a href="#fleet" onClick="{{ closeMobile }}" style="color:#fff;">Мотоциклы</a>
   <a href="#pricing" onClick="{{ closeMobile }}" style="color:#fff;">Цены</a>
-  <a href="#scenarios" onClick="{{ closeMobile }}" style="color:#fff;">Сценарии</a>
-  <a href="https://t.me/enduro_energy" target="_blank" rel="noopener noreferrer" onClick="{{ closeMobile }}" style="padding:0.85rem 2.2rem;background:#ff6b2c;color:#0c0f0d;border-radius:8px;font-weight:700;">Записаться</a>
+  <a href="#scenarios" onClick="{{ closeMobile }}" style="color:#fff;">Выезды</a>
+  <a href="https://t.me/enduro_energy" target="_blank" onClick="{{ closeMobile }}" style="padding:0.85rem 2.2rem;background:#ff6b2c;color:#0c0f0d;border-radius:8px;font-weight:700;">Записаться</a>
 </div>
 
 <main id="top" style="position:relative;overflow-x:hidden;">
@@ -104,10 +94,10 @@
     <div style="position:relative;z-index:2;width:min(1280px,94vw);margin-inline:auto;">
       <p style="font-size:0.8rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#ffab7a;margin:0 0 1.1rem;">Эндуро туры в Ленинградской области</p>
       <h1 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,8vw,6.8rem);line-height:0.94;letter-spacing:0.02em;text-transform:uppercase;color:#fff;margin:0 0 1.4rem;max-width:16ch;">Приключения ближе, чем ты думаешь</h1>
-      <p style="font-size:1.15rem;color:rgba(255,255,255,0.82);max-width:34rem;margin:0 0 2rem;line-height:1.6;">Прокат и обучение эндуро для новичков и опытных райдеров. Мотоцикл, экипировка, маршрут и инструктор — всё включено. 20 минут от м. Дыбенко.</p>
+      <p style="font-size:1.15rem;color:rgba(255,255,255,0.82);max-width:34rem;margin:0 0 2rem;line-height:1.6;">Прокат эндуро-мотоциклов, обучение новичков, выезды для опытных райдеров. Мотоцикл, экипировка, маршрут и инструктор — всё включено. 30 минут от м. ул. Дыбенко.</p>
 
       <div style="display:flex;flex-wrap:wrap;gap:1rem;margin-bottom:1.5rem;">
-        <a href="https://t.me/enduro_energy" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;justify-content:center;padding:1rem 2rem;border-radius:8px;font-weight:700;font-size:1rem;background:#ff6b2c;color:#0c0f0d;transition:transform 0.2s,box-shadow 0.2s;" style-hover="transform:translateY(-2px);box-shadow:0 14px 34px rgba(255,107,44,0.35);">Записаться на катание</a>
+        <a href="https://t.me/enduro_energy" target="_blank" style="display:inline-flex;align-items:center;justify-content:center;padding:1rem 2rem;border-radius:8px;font-weight:700;font-size:1rem;background:#ff6b2c;color:#0c0f0d;transition:transform 0.2s,box-shadow 0.2s;" style-hover="transform:translateY(-2px);box-shadow:0 14px 34px rgba(255,107,44,0.35);">Записаться на катание</a>
         <a href="#routes" style="display:inline-flex;align-items:center;justify-content:center;padding:1rem 2rem;border-radius:8px;font-weight:600;font-size:1rem;border:1px solid rgba(255,255,255,0.25);color:#fff;transition:background 0.2s,border-color 0.2s;" style-hover="border-color:#ff6b2c;background:rgba(255,107,44,0.15);">Смотреть прохваты</a>
       </div>
 
@@ -118,8 +108,8 @@
 
       <dl style="display:flex;flex-wrap:wrap;gap:2.5rem;margin:0;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.15);">
         <div>
-          <dt style="font-family:'Bebas Neue',sans-serif;font-size:2.1rem;color:#fff;letter-spacing:0.04em;margin:0;">20 мин</dt>
-          <dd style="font-size:0.85rem;color:rgba(255,255,255,0.65);margin:0.2rem 0 0;">от м. Дыбенко</dd>
+          <dt style="font-family:'Bebas Neue',sans-serif;font-size:2.1rem;color:#fff;letter-spacing:0.04em;margin:0;">30 мин</dt>
+          <dd style="font-size:0.85rem;color:rgba(255,255,255,0.65);margin:0.2rem 0 0;">от м. ул. Дыбенко</dd>
         </div>
         <div>
           <dt style="font-family:'Bebas Neue',sans-serif;font-size:2.1rem;color:#fff;letter-spacing:0.04em;margin:0;">Любой уровень</dt>
@@ -132,7 +122,7 @@
       </dl>
     </div>
 
-    <div style="position:absolute;bottom:2rem;right:max(4vw,1rem);z-index:2;display:flex;flex-direction:column;align-items:center;gap:0.75rem;font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.7);">
+    <div style="position:absolute;bottom:2rem;right:max(4vw,1rem);z-index:2;display:flex;flex-direction:column;align-items:center;gap:0.75rem;font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.7);">
       <span>Скролл</span>
       <div style="width:1px;height:48px;background:linear-gradient(#ff6b2c,transparent);animation:scrollPulse 2s ease-in-out infinite;"></div>
     </div>
@@ -147,7 +137,7 @@
       <span>Карьеры</span><span style="color:#ffab7a;">·</span>
       <span>Прохваты</span><span style="color:#ffab7a;">·</span>
       <span>Обучение с нуля</span><span style="color:#ffab7a;">·</span>
-      <span>20 минут от м. Дыбенко</span><span style="color:#ffab7a;">·</span>
+      <span>30 минут от м. ул. Дыбенко</span><span style="color:#ffab7a;">·</span>
       <span>Права не нужны</span><span style="color:#ffab7a;">·</span>
       <span>Экипировка включена</span><span style="color:#ffab7a;">·</span>
       <span>Прокат эндуро</span><span style="color:#ffab7a;">·</span>
@@ -156,7 +146,7 @@
       <span>Карьеры</span><span style="color:#ffab7a;">·</span>
       <span>Прохваты</span><span style="color:#ffab7a;">·</span>
       <span>Обучение с нуля</span><span style="color:#ffab7a;">·</span>
-      <span>20 минут от м. Дыбенко</span><span style="color:#ffab7a;">·</span>
+      <span>30 минут от м. ул. Дыбенко</span><span style="color:#ffab7a;">·</span>
       <span>Права не нужны</span><span style="color:#ffab7a;">·</span>
       <span>Экипировка включена</span><span style="color:#ffab7a;">·</span>
     </div>
@@ -168,16 +158,16 @@
 
       <div ref="{{ statsBoxRef }}" style="{{ statsGridStyle }}">
         <div style="padding:2rem 2.5rem;border-right:1px solid rgba(255,255,255,0.08);">
-          <div style="display:flex;align-items:baseline;gap:0.2rem;"><span data-count-target="5" style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.3rem,4vw,3.3rem);color:#ff6b2c;line-height:1;">0</span><span style="color:#ff6b2c;font-size:1.8rem;font-family:'Bebas Neue',sans-serif;">+</span></div>
-          <div style="font-size:0.78rem;color:rgba(255,255,255,0.45);text-transform:uppercase;letter-spacing:0.1em;margin-top:0.3rem;">лет работы</div>
+          <div style="display:flex;align-items:baseline;gap:0.2rem;"><span data-count-target="2" style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.3rem,4vw,3.3rem);color:#ff6b2c;line-height:1;">0</span></div>
+          <div style="font-size:0.78rem;color:rgba(255,255,255,0.45);text-transform:uppercase;letter-spacing:0.1em;margin-top:0.3rem;">года работы</div>
         </div>
         <div style="padding:2rem 2.5rem;border-right:1px solid rgba(255,255,255,0.08);">
-          <div style="display:flex;align-items:baseline;gap:0.2rem;"><span data-count-target="500" style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.3rem,4vw,3.3rem);color:#ff6b2c;line-height:1;">0</span><span style="color:#ff6b2c;font-size:1.8rem;font-family:'Bebas Neue',sans-serif;">+</span></div>
+          <div style="display:flex;align-items:baseline;gap:0.2rem;"><span data-count-target="200" style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.3rem,4vw,3.3rem);color:#ff6b2c;line-height:1;">0</span><span style="color:#ff6b2c;font-size:1.8rem;font-family:'Bebas Neue',sans-serif;">+</span></div>
           <div style="font-size:0.78rem;color:rgba(255,255,255,0.45);text-transform:uppercase;letter-spacing:0.1em;margin-top:0.3rem;">выездов</div>
         </div>
         <div style="padding:2rem 2.5rem;">
-          <div style="display:flex;align-items:baseline;gap:0.2rem;"><span data-count-target="20" style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.3rem,4vw,3.3rem);color:#ff6b2c;line-height:1;">0</span><span style="color:#ff6b2c;font-size:1.1rem;font-family:'Bebas Neue',sans-serif;"> мин</span></div>
-          <div style="font-size:0.78rem;color:rgba(255,255,255,0.45);text-transform:uppercase;letter-spacing:0.1em;margin-top:0.3rem;">от м. Дыбенко</div>
+          <div style="display:flex;align-items:baseline;gap:0.2rem;"><span data-count-target="30" style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.3rem,4vw,3.3rem);color:#ff6b2c;line-height:1;">0</span><span style="color:#ff6b2c;font-size:1.1rem;font-family:'Bebas Neue',sans-serif;"> мин</span></div>
+          <div style="font-size:0.78rem;color:rgba(255,255,255,0.45);text-transform:uppercase;letter-spacing:0.1em;margin-top:0.3rem;">от м. ул. Дыбенко</div>
         </div>
       </div>
 
@@ -187,12 +177,12 @@
         <div ref="{{ onReveal }}" style="opacity:0;transform:translateY(32px);transition:opacity 0.7s cubic-bezier(0.22,1,0.36,1),transform 0.7s cubic-bezier(0.22,1,0.36,1);">
           <p style="font-size:0.78rem;letter-spacing:0.16em;text-transform:uppercase;color:#ff6b2c;font-weight:700;margin:0 0 1.25rem;">Почему Enduro Energy</p>
           <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.6rem,5vw,4.6rem);color:#fff;letter-spacing:0.02em;line-height:1;margin:0 0 1.5rem;">Не просто <span style="color:#ff6b2c;">мотоцикл</span> напрокат.</h2>
-          <p style="font-size:1.05rem;color:rgba(255,255,255,0.6);line-height:1.7;max-width:38ch;margin:0;">Наша цель — подарить яркие эмоции, уверенность и настоящее приключение. Катаем как со своими: спокойно, понятно, с упором на удовольствие.</p>
-          <a href="https://t.me/enduro_energy" target="_blank" rel="noopener noreferrer" style="display:inline-flex;margin-top:2.25rem;padding:0.9rem 1.9rem;border-radius:8px;font-weight:700;font-size:0.95rem;background:#ff6b2c;color:#0c0f0d;transition:transform 0.2s,box-shadow 0.2s;" style-hover="transform:translateY(-2px);box-shadow:0 12px 30px rgba(255,107,44,0.3);">Записаться на выезд</a>
+          <p style="font-size:1.05rem;color:rgba(255,255,255,0.6);line-height:1.7;max-width:38ch;margin:0;">Мы не просто прокат эндуро-мотоциклов. Наша цель — подарить яркие эмоции, уверенность и создать настоящее приключение. Катаем как со своими: спокойно, понятно, с упором на удовольствие и безопасность.</p>
+          <a href="https://t.me/enduro_energy" target="_blank" style="display:inline-flex;margin-top:2.25rem;padding:0.9rem 1.9rem;border-radius:8px;font-weight:700;font-size:0.95rem;background:#ff6b2c;color:#0c0f0d;transition:transform 0.2s,box-shadow 0.2s;" style-hover="transform:translateY(-2px);box-shadow:0 12px 30px rgba(255,107,44,0.3);">Записаться на выезд</a>
         </div>
 
         <div ref="{{ onReveal }}" style="opacity:0;transform:translateY(32px);transition:opacity 0.7s cubic-bezier(0.22,1,0.36,1) 0.1s,transform 0.7s cubic-bezier(0.22,1,0.36,1) 0.1s;">
-          <div style="font-family: 'Bebas Neue',sans-serif; font-size: clamp(1.3rem,2.3vw,1.85rem); color: rgba(255,255,255,0.92); letter-spacing: 0.03em; line-height: 1.3; border-left: 3px solid #ff6b2c; padding-left: 1.6rem; margin-bottom: 1.75rem; max-width: 100%">У нас не про "покататься по кругу",<br>а про настоящее удовольствие от езды.</div>
+          <div style="font-family: 'Bebas Neue',sans-serif; font-size: clamp(1.3rem,2.3vw,1.85rem); color: rgba(255,255,255,0.92); letter-spacing: 0.03em; line-height: 1.3; border-left: 3px solid #ff6b2c; padding-left: 1.6rem; margin-bottom: 1.75rem; width: 625px; height: 116px">У нас не про "покататься по кругу",<br>а про настоящее удовольствие от езды.</div>
           <div style="display:flex;flex-direction:column;gap:0.9rem;">
             <div style="display:flex;align-items:center;gap:1rem;color:rgba(255,255,255,0.68);font-size:0.95rem;"><span style="width:26px;height:2px;background:#ff6b2c;flex-shrink:0;"></span>Маршрут под ваш уровень, настроение и погоду</div>
             <div style="display:flex;align-items:center;gap:1rem;color:rgba(255,255,255,0.68);font-size:0.95rem;"><span style="width:26px;height:2px;background:#ff6b2c;flex-shrink:0;"></span>Лес, карьеры, Нева, Богословка — как душа пожелает</div>
@@ -205,7 +195,7 @@
         <sc-for list="{{ expCards }}" as="card" hint-placeholder-count="6">
           <div ref="{{ onReveal }}" style="position:relative;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:20px;padding:2rem;overflow:hidden;transition:opacity 0.6s cubic-bezier(0.22,1,0.36,1),transform 0.6s cubic-bezier(0.22,1,0.36,1),border-color 0.3s,box-shadow 0.3s;opacity:0;" style-hover="border-color:rgba(255,107,44,0.4);box-shadow:0 22px 44px rgba(255,107,44,0.08);">
             <div style="font-family:'Bebas Neue',sans-serif;font-size:3rem;color:rgba(255,255,255,0.08);position:absolute;top:-0.4rem;right:1.25rem;">{{ card.num }}</div>
-            <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#ff6b2c;margin-bottom:0.75rem;">{{ card.tag }}</div>
+            <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#ff6b2c;margin-bottom:0.75rem;">{{ card.tag }}</div>
             <h3 style="font-size:1.15rem;font-weight:700;color:#fff;margin:0 0 0.6rem;">{{ card.title }}</h3>
             <p style="font-size:0.92rem;color:rgba(255,255,255,0.55);line-height:1.6;margin:0;">{{ card.text }}</p>
           </div>
@@ -218,37 +208,37 @@
   <!-- ROUTES -->
   <section id="routes" style="background:#13170f;padding:6rem 0;">
     <div style="width:min(1280px,94vw);margin-inline:auto;">
-      <div ref="{{ onReveal }}" style="margin-bottom:3rem;text-align:center;opacity:0;transform:translateY(32px);transition:opacity 0.7s cubic-bezier(0.22,1,0.36,1),transform 0.7s cubic-bezier(0.22,1,0.36,1);">
+      <header ref="{{ onReveal }}" style="margin-bottom:3rem;text-align:center;opacity:0;transform:translateY(32px);transition:opacity 0.7s cubic-bezier(0.22,1,0.36,1),transform 0.7s cubic-bezier(0.22,1,0.36,1);">
         <p style="font-size:0.78rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#ff6b2c;margin:0 0 0.75rem;">Готовые выезды</p>
         <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.5rem,6vw,4.2rem);color:#fff;letter-spacing:0.02em;line-height:1;margin:0 0 1rem;">Прохваты</h2>
         <p style="color:rgba(255,255,255,0.5);max-width:36rem;margin-inline:auto;">Всё включено: мотоцикл, экипировка, вода, инструктор. Права не нужны.</p>
-      </div>
+      </header>
 
       <div style="{{ routesGridStyle }}">
         <article ref="{{ onReveal }}" style="position:relative;border-radius:20px;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;min-height:520px;opacity:0;transform:translateY(32px);transition:opacity 0.7s cubic-bezier(0.22,1,0.36,1),transform 0.7s cubic-bezier(0.22,1,0.36,1);">
-          <img loading="lazy" src="gallery-neva.jpg" alt="Прохват до Невы — лесные дороги и выезд к берегу" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;">
+          <img src="gallery-neva.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;">
           <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.3) 50%, transparent 100%);"></div>
           <div style="position:relative;padding:2.5rem;">
-            <span style="display:inline-block;background:rgba(0,0,0,0.7);color:#fff;font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:0.3rem 0.9rem;border-radius:20px;margin-bottom:1rem;backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.15);">3 часа · Любой уровень</span>
+            <span style="display:inline-block;background:rgba(0,0,0,0.7);color:#fff;font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:0.3rem 0.9rem;border-radius:20px;margin-bottom:1rem;backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.15);">3 часа · Любой уровень</span>
             <h3 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(1.9rem,3vw,2.9rem);color:#fff;letter-spacing:0.03em;line-height:1;margin:0 0 0.75rem;">Прохват до Невы</h3>
             <p style="color:rgba(255,255,255,0.68);font-size:0.92rem;max-width:42ch;margin:0 0 1.5rem;">Лесные дороги, карьеры, выезд к берегу Невы. Не «по кругу» — настоящий маршрут с атмосферой.</p>
             <div style="display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;">
               <span style="font-family:'Bebas Neue',sans-serif;font-size:2.2rem;color:#fff;letter-spacing:0.03em;">9 000 ₽</span>
-              <a href="https://t.me/enduro_energy" target="_blank" rel="noopener noreferrer" style="padding:0.85rem 1.6rem;border-radius:8px;font-weight:700;font-size:0.9rem;background:#ff6b2c;color:#0c0f0d;">Записаться</a>
+              <a href="https://t.me/enduro_energy" target="_blank" style="padding:0.85rem 1.6rem;border-radius:8px;font-weight:700;font-size:0.9rem;background:#ff6b2c;color:#0c0f0d;">Записаться</a>
             </div>
           </div>
         </article>
 
         <article ref="{{ onReveal }}" style="position:relative;border-radius:20px;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;min-height:520px;opacity:0;transform:translateY(32px);transition:opacity 0.7s cubic-bezier(0.22,1,0.36,1) 0.1s,transform 0.7s cubic-bezier(0.22,1,0.36,1) 0.1s;">
-          <img loading="lazy" src="gallery-bog.jpg" alt="Прохват до Богословки — большой маршрут по лесу" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;">
+          <img src="gallery-bog.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;">
           <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.25) 55%, transparent 100%);"></div>
           <div style="position:relative;padding:2rem;">
-            <span style="display:inline-block;background:rgba(0,0,0,0.7);color:#fff;font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:0.3rem 0.9rem;border-radius:20px;margin-bottom:1rem;backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.15);">5+ часов · Продвинутый</span>
+            <span style="display:inline-block;background:rgba(0,0,0,0.7);color:#fff;font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:0.3rem 0.9rem;border-radius:20px;margin-bottom:1rem;backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.15);">5+ часов · Продвинутый</span>
             <h3 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(1.6rem,2.6vw,2.3rem);color:#fff;letter-spacing:0.03em;line-height:1.1;margin:0 0 0.6rem;">Прохват до Богословки</h3>
             <p style="color:rgba(255,255,255,0.62);font-size:0.88rem;margin:0 0 1.25rem;">Большое путешествие: лес, карьеры, интересные участки. Для тех, кто хочет наездиться.</p>
             <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;">
               <span style="font-family:'Bebas Neue',sans-serif;font-size:1.9rem;color:#fff;letter-spacing:0.03em;">12 000 ₽</span>
-              <a href="https://t.me/enduro_energy" target="_blank" rel="noopener noreferrer" style="padding:0.7rem 1.2rem;border-radius:8px;font-weight:700;font-size:0.85rem;background:#ff6b2c;color:#0c0f0d;">Записаться</a>
+              <a href="https://t.me/enduro_energy" target="_blank" style="padding:0.7rem 1.2rem;border-radius:8px;font-weight:700;font-size:0.85rem;background:#ff6b2c;color:#0c0f0d;">Записаться</a>
             </div>
           </div>
         </article>
@@ -268,8 +258,8 @@
         <sc-for list="{{ fleetModels }}" as="bike" hint-placeholder-count="4">
           <div style="{{ fleetSlideGridStyle }}">
             <div style="padding:4rem 3rem 4rem 6vw;display:flex;flex-direction:column;justify-content:center;border-right:1px solid rgba(255,255,255,0.07);">
-              <div style="font-size:0.75rem;letter-spacing:0.16em;text-transform:uppercase;color:#ff6b2c;margin-bottom:0.6rem;font-weight:700;">{{ bike.spec }}</div>
-              <div style="display:inline-block;background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.55);font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:0.3rem 0.85rem;border-radius:20px;margin-bottom:1.5rem;width:fit-content;">{{ bike.tier }}</div>
+              <div style="font-size:0.65rem;letter-spacing:0.16em;text-transform:uppercase;color:#ff6b2c;margin-bottom:0.6rem;font-weight:700;">{{ bike.spec }}</div>
+              <div style="display:inline-block;background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.55);font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:0.3rem 0.85rem;border-radius:20px;margin-bottom:1.5rem;width:fit-content;">{{ bike.tier }}</div>
               <h3 style="font-size:clamp(1.8rem,3vw,2.6rem);font-weight:800;color:#fff;letter-spacing:0.01em;line-height:1.05;margin:0 0 1.1rem;">{{ bike.name }}</h3>
               <p style="color:rgba(255,255,255,0.5);font-size:0.92rem;line-height:1.65;max-width:34ch;margin:0 0 1.75rem;">{{ bike.desc }}</p>
               <div style="font-family:'Bebas Neue',sans-serif;font-size:2.6rem;color:#fff;letter-spacing:0.03em;line-height:1;">{{ bike.price }}<span style="font-size:0.95rem;color:rgba(255,255,255,0.35);font-family:'DM Sans',sans-serif;font-weight:400;"> / час</span></div>
@@ -279,14 +269,14 @@
               <div style="position:absolute;left:6%;right:6%;bottom:26%;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.14) 20%,rgba(255,255,255,0.14) 80%,transparent);"></div>
               <div style="position:absolute;left:0;bottom:29%;width:38%;height:2px;background:linear-gradient(90deg,transparent,rgba(255,107,44,0.55));animation:speedLine 2.1s ease-in-out infinite;"></div>
               <div style="position:absolute;left:0;bottom:23%;width:24%;height:2px;background:linear-gradient(90deg,transparent,rgba(255,107,44,0.3));animation:speedLine 2.1s ease-in-out infinite 0.35s;"></div>
-              <img loading="lazy" src="{{ bike.img }}" alt="{{ bike.name }}" style="position:relative;z-index:2;max-width:82%;max-height:420px;width:auto;height:auto;object-fit:contain;filter:drop-shadow(0 26px 24px rgba(0,0,0,0.65));animation:bikeFloat 3.4s ease-in-out infinite;">
+              <img src="{{ bike.img }}" style="position:relative;z-index:2;max-width:82%;max-height:420px;width:auto;height:auto;object-fit:contain;filter:drop-shadow(0 26px 24px rgba(0,0,0,0.65));animation:bikeFloat 3.4s ease-in-out infinite;">
             </div>
           </div>
         </sc-for>
       </div>
 
-      <button type="button" onClick="{{ bikePrev }}" aria-label="Предыдущий" style="position:absolute;left:1.5rem;top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:50%;background:#fff;border:none;color:#111;font-size:1.3rem;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 24px rgba(0,0,0,0.5);z-index:10;transition:transform 0.2s;" style-hover="transform:translateY(-50%) scale(1.08);">←</button>
-      <button type="button" onClick="{{ bikeNext }}" aria-label="Следующий" style="position:absolute;right:1.5rem;top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:50%;background:#fff;border:none;color:#111;font-size:1.3rem;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 24px rgba(0,0,0,0.5);z-index:10;transition:transform 0.2s;" style-hover="transform:translateY(-50%) scale(1.08);">→</button>
+      <button onClick="{{ bikePrev }}" aria-label="Предыдущий" style="position:absolute;left:1.5rem;top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:50%;background:#fff;border:none;color:#111;font-size:1.3rem;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 24px rgba(0,0,0,0.5);z-index:10;transition:transform 0.2s;" style-hover="transform:translateY(-50%) scale(1.08);">←</button>
+      <button onClick="{{ bikeNext }}" aria-label="Следующий" style="position:absolute;right:1.5rem;top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:50%;background:#fff;border:none;color:#111;font-size:1.3rem;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 24px rgba(0,0,0,0.5);z-index:10;transition:transform 0.2s;" style-hover="transform:translateY(-50%) scale(1.08);">→</button>
     </div>
 
     <div style="display:flex;justify-content:center;gap:0.6rem;padding:1.75rem 0;">
@@ -303,7 +293,7 @@
       <div ref="{{ onReveal }}" style="margin-bottom:3rem;opacity:0;transform:translateY(32px);transition:opacity 0.7s cubic-bezier(0.22,1,0.36,1),transform 0.7s cubic-bezier(0.22,1,0.36,1);">
         <p style="font-size:0.78rem;letter-spacing:0.16em;text-transform:uppercase;color:#ff6b2c;margin:0 0 1rem;font-weight:700;">Стоимость</p>
         <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.6rem,7vw,6.5rem);color:#fff;letter-spacing:0.03em;line-height:1;margin:0;">Соберите выезд</h2>
-        <p style="color:rgba(255,255,255,0.50);margin-top:0.75rem;font-size:0.95rem;">Цена обновляется мгновенно — без лишних шагов.</p>
+        <p style="color:rgba(255,255,255,0.42);margin-top:0.75rem;font-size:0.95rem;">Цена обновляется мгновенно — без лишних шагов.</p>
       </div>
 
       <div style="{{ calcWrapGridStyle }}">
@@ -319,10 +309,10 @@
             <div style="font-size:0.88rem;color:rgba(255,255,255,0.6);">Вода на маршруте</div>
             <div style="font-size:0.88rem;color:rgba(255,255,255,0.6);">Инструктор / сопровождение</div>
           </div>
-          <a href="https://t.me/enduro_energy" target="_blank" rel="noopener noreferrer" style="display:block;text-align:center;padding:1rem;border-radius:10px;font-weight:700;font-size:0.98rem;background:#ff6b2c;color:#0c0f0d;transition:transform 0.2s,box-shadow 0.2s;" style-hover="transform:translateY(-2px);box-shadow:0 14px 30px rgba(255,107,44,0.32);">{{ calcCtaLabel }}</a>
+          <a href="https://t.me/enduro_energy" target="_blank" style="display:block;text-align:center;padding:1rem;border-radius:10px;font-weight:700;font-size:0.98rem;background:#ff6b2c;color:#0c0f0d;transition:transform 0.2s,box-shadow 0.2s;" style-hover="transform:translateY(-2px);box-shadow:0 14px 30px rgba(255,107,44,0.32);">{{ calcCtaLabel }}</a>
           <div style="display:flex;flex-direction:column;gap:0.6rem;margin-top:1.5rem;">
-            <div style="display:flex;align-items:center;gap:0.6rem;font-size:0.82rem;color:rgba(255,255,255,0.55);"><span style="background:rgba(255,107,44,0.15);color:#ffab7a;font-weight:700;font-size:0.75rem;padding:0.2rem 0.5rem;border-radius:6px;">−10%</span>По будням 10:00–18:00, от 2 ч</div>
-            <div style="display:flex;align-items:center;gap:0.6rem;font-size:0.82rem;color:rgba(255,255,255,0.55);"><span style="background:rgba(255,107,44,0.15);color:#ffab7a;font-weight:700;font-size:0.75rem;padding:0.2rem 0.5rem;border-radius:6px;">−15%</span>День рождения ±5 дней, по документу</div>
+            <div style="display:flex;align-items:center;gap:0.6rem;font-size:0.82rem;color:rgba(255,255,255,0.55);"><span style="background:rgba(255,107,44,0.15);color:#ffab7a;font-weight:700;font-size:0.72rem;padding:0.2rem 0.5rem;border-radius:6px;">−10%</span>По будням от 2-х часов</div>
+            <div style="display:flex;align-items:center;gap:0.6rem;font-size:0.82rem;color:rgba(255,255,255,0.55);"><span style="background:rgba(255,107,44,0.15);color:#ffab7a;font-weight:700;font-size:0.72rem;padding:0.2rem 0.5rem;border-radius:6px;">−15%</span>Мальчишник и день рождения от 2-х часов</div>
           </div>
         </div>
 
@@ -334,7 +324,7 @@
             </div>
             <div style="{{ calcTypeGridStyle }}">
               <sc-for list="{{ calcTypes }}" as="t" hint-placeholder-count="6">
-                <button type="button" onClick="{{ t.onClick }}" style="{{ t.btnStyle }}">
+                <button onClick="{{ t.onClick }}" style="{{ t.btnStyle }}">
                   <span style="display:block;font-weight:700;font-size:0.98rem;color:#fff;margin-bottom:0.3rem;">{{ t.label }}</span>
                   <span style="display:block;font-size:0.8rem;color:rgba(255,255,255,0.5);">{{ t.priceLabel }}</span>
                 </button>
@@ -349,9 +339,9 @@
             </div>
             <div style="{{ calcBikeGridStyle }}">
               <sc-for list="{{ calcBikes }}" as="b" hint-placeholder-count="4">
-                <button type="button" onClick="{{ b.onClick }}" style="{{ b.btnStyle }}">
-                  <img loading="lazy" src="{{ b.img }}" style="width:100%;height:130px;object-fit:cover;object-position:center 65%;border-radius:10px;margin-bottom:0.75rem;">
-                  <div style="font-size:0.75rem;color:rgba(255,255,255,0.45);text-transform:uppercase;letter-spacing:0.06em;">{{ b.spec }}</div>
+                <button onClick="{{ b.onClick }}" style="{{ b.btnStyle }}">
+                  <div style="width:100%;height:130px;background:#fff;border-radius:10px;margin-bottom:0.75rem;display:flex;align-items:center;justify-content:center;padding:0.5rem;"><img src="{{ b.img }}" style="max-width:100%;max-height:100%;object-fit:contain;"></div>
+                  <div style="font-size:0.7rem;color:rgba(255,255,255,0.45);text-transform:uppercase;letter-spacing:0.06em;">{{ b.spec }}</div>
                   <div style="font-weight:700;color:#fff;font-size:0.95rem;margin:0.2rem 0;">{{ b.name }}</div>
                   <div style="font-size:0.8rem;color:#ffab7a;">{{ b.priceLabel }}</div>
                 </button>
@@ -366,7 +356,7 @@
             </div>
             <div style="{{ calcTimeGridStyle }}">
               <sc-for list="{{ timeOptions }}" as="opt" hint-placeholder-count="4">
-                <button type="button" onClick="{{ opt.onClick }}" style="{{ opt.btnStyle }}">
+                <button onClick="{{ opt.onClick }}" style="{{ opt.btnStyle }}">
                   <span style="display:block;font-family:'Bebas Neue',sans-serif;font-size:1.6rem;color:#fff;">{{ opt.val }}</span>
                   <span style="display:block;font-size:0.78rem;color:rgba(255,255,255,0.5);">{{ opt.unit }}</span>
                 </button>
@@ -391,13 +381,13 @@
         <div>
           <div ref="{{ onReveal }}" style="opacity:0;transform:translateY(32px);transition:opacity 0.7s cubic-bezier(0.22,1,0.36,1),transform 0.7s cubic-bezier(0.22,1,0.36,1);">
             <p style="font-size:0.78rem;letter-spacing:0.16em;text-transform:uppercase;color:#ff6b2c;margin:0 0 1rem;font-weight:700;">Для любого повода</p>
-            <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.5rem,4.5vw,3.9rem);color:#fff;letter-spacing:0.02em;line-height:1;margin:0;">Форматы заездов</h2>
-            <p style="color:rgba(255,255,255,0.50);margin-top:1rem;font-size:0.92rem;max-width:38ch;">Наведи на сценарий — увидишь атмосферу. Любой из них организуем под тебя.</p>
+            <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.5rem,4.5vw,3.9rem);color:#fff;letter-spacing:0.02em;line-height:1;margin:0;">Форматы выездов</h2>
+            <p style="color:rgba(255,255,255,0.42);margin-top:1rem;font-size:0.92rem;max-width:38ch;">Наведи на понравившийся выезд — увидишь атмосферу. Любой организуем под тебя.</p>
           </div>
 
           <div style="display:flex;flex-direction:column;margin-top:2.5rem;border-top:1px solid rgba(255,255,255,0.1);">
             <sc-for list="{{ scenarios }}" as="sc" hint-placeholder-count="4">
-              <div onMouseEnter="{{ sc.onEnter }}" onClick="{{ sc.onEnter }}" onKeyDown="{{ sc.onEnter }}" role="button" tabindex="0" style="{{ sc.itemStyle }}">
+              <div onMouseEnter="{{ sc.onEnter }}" onClick="{{ sc.onEnter }}" style="{{ sc.itemStyle }}">
                 <div style="font-family:'Bebas Neue',sans-serif;font-size:1.5rem;color:rgba(255,255,255,0.3);width:2.5rem;flex-shrink:0;">{{ sc.num }}</div>
                 <div>
                   <div style="font-weight:700;color:#fff;font-size:1.15rem;margin-bottom:0.3rem;">{{ sc.name }}</div>
@@ -410,7 +400,7 @@
         </div>
 
         <div ref="{{ onReveal }}" style="opacity:0;transform:translateY(32px);transition:opacity 0.7s cubic-bezier(0.22,1,0.36,1) 0.1s,transform 0.7s cubic-bezier(0.22,1,0.36,1) 0.1s;display:flex;align-items:flex-end;justify-content:{{ scenarioCtaJustify }};height:100%;">
-          <a href="https://t.me/enduro_energy" target="_blank" rel="noopener noreferrer" style="display:inline-flex;padding:1.1rem 2.2rem;border-radius:10px;font-weight:700;font-size:1rem;background:#ff6b2c;color:#0c0f0d;transition:transform 0.2s,box-shadow 0.2s;" style-hover="transform:translateY(-2px);box-shadow:0 16px 34px rgba(255,107,44,0.32);">Обсудить сценарий</a>
+          <a href="https://t.me/enduro_energy" target="_blank" style="display:inline-flex;padding:1.1rem 2.2rem;border-radius:10px;font-weight:700;font-size:1rem;background:#ff6b2c;color:#0c0f0d;transition:transform 0.2s,box-shadow 0.2s;" style-hover="transform:translateY(-2px);box-shadow:0 16px 34px rgba(255,107,44,0.32);">Записаться на выезд</a>
         </div>
       </div>
     </div>
@@ -421,7 +411,7 @@
     <div style="{{ galleryGridStyle }}">
       <sc-for list="{{ galleryImages }}" as="g" hint-placeholder-count="8">
         <div style="height:{{ g.h }};overflow:hidden;">
-          <img loading="lazy" src="{{ g.src }}" style="width:100%;height:100%;object-fit:cover;object-position:{{ g.pos }};transition:transform 0.5s ease;" style-hover="transform:scale(1.045);">
+          <img src="{{ g.src }}" style="width:100%;height:100%;object-fit:cover;object-position:{{ g.pos }};transition:transform 0.5s ease;" style-hover="transform:scale(1.045);">
         </div>
       </sc-for>
     </div>
@@ -430,7 +420,7 @@
   <!-- RIDE VIDEO -->
   <section style="background:#000;position:relative;overflow:hidden;min-height:100vh;display:flex;align-items:center;">
     <video ref="{{ setRideVideoRef }}" autoplay muted defaultMuted loop playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
-      <source src="riding1.mp4" type="video/mp4"><source src="riding1.mov" type="video/quicktime">
+      <source src="riding1.mov" type="video/mp4">
     </video>
     <div style="position:absolute;inset:0;background:linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, transparent 25%, transparent 75%, rgba(0,0,0,0.55) 100%);pointer-events:none;"></div>
   </section>
@@ -440,12 +430,12 @@
     <div style="{{ videoGridStyle }}">
       <div style="height:340px;overflow:hidden;">
         <video ref="{{ setRideVideoRef2 }}" autoplay muted defaultMuted loop playsinline style="width:100%;height:100%;object-fit:cover;object-position:center 75%;display:block;">
-          <source src="riding2.mp4" type="video/mp4"><source src="riding2.mov" type="video/quicktime">
+          <source src="riding2.mov" type="video/mp4">
         </video>
       </div>
       <div style="height:340px;overflow:hidden;">
         <video ref="{{ setRideVideoRef2 }}" autoplay muted defaultMuted loop playsinline style="width:100%;height:100%;object-fit:cover;display:block;">
-          <source src="riding3.mp4" type="video/mp4"><source src="riding3.mov" type="video/quicktime">
+          <source src="riding3.mov" type="video/mp4">
         </video>
       </div>
     </div>
@@ -454,10 +444,10 @@
   <!-- REVIEWS -->
   <section id="reviews" style="background:#0c0f0d;padding:6rem 0;">
     <div style="width:min(1280px,94vw);margin-inline:auto;">
-      <div ref="{{ onReveal }}" style="margin-bottom:2.5rem;text-align:center;opacity:0;transform:translateY(32px);transition:opacity 0.7s cubic-bezier(0.22,1,0.36,1),transform 0.7s cubic-bezier(0.22,1,0.36,1);">
+      <header ref="{{ onReveal }}" style="margin-bottom:2.5rem;text-align:center;opacity:0;transform:translateY(32px);transition:opacity 0.7s cubic-bezier(0.22,1,0.36,1),transform 0.7s cubic-bezier(0.22,1,0.36,1);">
         <p style="font-size:0.78rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#ff6b2c;margin:0 0 0.75rem;">Отзывы</p>
         <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.5rem,6vw,4.2rem);color:#fff;letter-spacing:0.02em;line-height:1;margin:0;">Что говорят райдеры</h2>
-      </div>
+      </header>
 
       <div style="display:flex;align-items:center;gap:1.25rem;flex-wrap:wrap;justify-content:center;padding:1.5rem 2rem;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:16px;margin-bottom:2.5rem;">
         <svg width="34" height="34" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="12" fill="#FC3F1D"></circle><path d="M13.32 7.2H12.1c-1.34 0-2.05.63-2.05 1.67 0 1.18.54 1.76 1.65 2.5l.92.62-2.66 4.01H8.5l2.46-3.71c-1.35-.96-2.1-1.88-2.1-3.33 0-1.88 1.3-3.16 3.56-3.16h2.34V16h-1.44V7.2z" fill="white"></path></svg>
@@ -472,14 +462,14 @@
           </div>
           <div style="font-size:0.82rem;color:rgba(255,255,255,0.5);">Рейтинг на Яндекс Картах</div>
         </div>
-        <a href="https://yandex.ru/profile/234965888694" target="_blank" rel="noopener noreferrer" style="margin-left:auto;font-size:0.88rem;font-weight:600;color:#ffab7a;">Все отзывы →</a>
+        <a href="https://yandex.ru/profile/234965888694" target="_blank" rel="noopener" style="margin-left:auto;font-size:0.88rem;font-weight:600;color:#ffab7a;">Все отзывы →</a>
       </div>
 
       <div style="{{ reviewsGridStyle }}">
         <sc-for list="{{ reviews }}" as="r" hint-placeholder-count="3">
           <div ref="{{ onReveal }}" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:20px;padding:1.75rem;opacity:0;transform:translateY(32px);transition:opacity 0.6s ease,transform 0.6s ease;">
             <div style="display:flex;gap:0.75rem;align-items:center;margin-bottom:1rem;">
-              <img loading="lazy" src="{{ r.img }}" style="width:44px;height:44px;border-radius:50%;object-fit:cover;">
+              <img src="{{ r.img }}" style="width:44px;height:44px;border-radius:50%;object-fit:cover;flex-shrink:0;">
               <div>
                 <div style="font-weight:700;color:#fff;">{{ r.name }}</div>
                 <div style="font-size:0.8rem;color:rgba(255,255,255,0.5);">{{ r.tag }}</div>
@@ -496,16 +486,18 @@
   <!-- SAFETY -->
   <section id="safety" style="background:#13170f;padding:6rem 0;">
     <div style="width:min(1280px,94vw);margin-inline:auto;">
-      <div ref="{{ onReveal }}" style="margin-bottom:2.5rem;text-align:center;opacity:0;transform:translateY(32px);transition:opacity 0.7s cubic-bezier(0.22,1,0.36,1),transform 0.7s cubic-bezier(0.22,1,0.36,1);">
-        <p style="font-size:0.78rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#ff6b2c;margin:0 0 0.75rem;">Безопасность</p>
-        <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,5vw,3.6rem);color:#fff;letter-spacing:0.02em;line-height:1.05;margin:0;">Это безопасно. Даже если вы первый раз.</h2>
-      </div>
+      <header ref="{{ onReveal }}" style="margin-bottom:2.5rem;text-align:center;opacity:0;transform:translateY(32px);transition:opacity 0.7s cubic-bezier(0.22,1,0.36,1),transform 0.7s cubic-bezier(0.22,1,0.36,1);">
+        <p style="font-size:0.78rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#ff6b2c;margin:0 0 0.75rem;">Эмоции</p>
+        <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,5vw,3.6rem);color:#fff;letter-spacing:0.02em;line-height:1.05;margin:0;">Воспоминания, которые останутся с вами</h2>
+      </header>
 
       <div style="{{ safetyGridStyle }}">
         <sc-for list="{{ safetyItems }}" as="s" hint-placeholder-count="3">
-          <div ref="{{ onReveal }}" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:20px;padding:1.9rem;display:flex;gap:1.1rem;opacity:0;transform:translateY(32px);transition:opacity 0.6s ease,transform 0.6s ease;">
-            <div style="font-family:'Bebas Neue',sans-serif;font-size:1.7rem;color:#ff6b2c;opacity:0.7;flex-shrink:0;">{{ s.num }}</div>
-            <div>
+          <div ref="{{ onReveal }}" style="position:relative;overflow:hidden;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:20px;padding:1.9rem;display:flex;gap:1.1rem;opacity:0;transform:translateY(32px);transition:opacity 0.6s ease,transform 0.6s ease,border-color 0.4s;" style-hover="border-color:rgba(255,171,122,0.4);">
+            <div style="position:absolute;inset:-60%;background:radial-gradient(circle at 50% 50%, {{ s.c1 }} 0%, transparent 55%);filter:blur(28px);animation:emoBlob1 {{ s.d1 }} ease-in-out infinite;pointer-events:none;"></div>
+            <div style="position:absolute;inset:-60%;background:radial-gradient(circle at 50% 50%, {{ s.c2 }} 0%, transparent 50%);filter:blur(34px);animation:emoBlob2 {{ s.d2 }} ease-in-out infinite;pointer-events:none;"></div>
+            <div style="position:relative;font-family:'Bebas Neue',sans-serif;font-size:1.7rem;color:#ff6b2c;opacity:0.7;flex-shrink:0;">{{ s.num }}</div>
+            <div style="position:relative;">
               <h3 style="color:#fff;font-size:1.05rem;font-weight:700;margin:0 0 0.4rem;">{{ s.title }}</h3>
               <p style="color:rgba(255,255,255,0.6);font-size:0.9rem;line-height:1.6;margin:0;">{{ s.text }}</p>
             </div>
@@ -518,10 +510,10 @@
   <!-- FAQ -->
   <section id="faq" style="background:#0c0f0d;padding:6rem 0;">
     <div style="width:min(1280px,94vw);margin-inline:auto;">
-      <div ref="{{ onReveal }}" style="margin-bottom:2.5rem;opacity:0;transform:translateY(32px);transition:opacity 0.7s cubic-bezier(0.22,1,0.36,1),transform 0.7s cubic-bezier(0.22,1,0.36,1);">
+      <header ref="{{ onReveal }}" style="margin-bottom:2.5rem;opacity:0;transform:translateY(32px);transition:opacity 0.7s cubic-bezier(0.22,1,0.36,1),transform 0.7s cubic-bezier(0.22,1,0.36,1);">
         <p style="font-size:0.78rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#ff6b2c;margin:0 0 0.75rem;">Частые вопросы</p>
         <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,5vw,3.6rem);color:#fff;letter-spacing:0.02em;line-height:1.05;margin:0;">Отвечаем на главные вопросы</h2>
-      </div>
+      </header>
 
       <div style="display:flex;flex-direction:column;gap:1rem;max-width:760px;">
         <sc-for list="{{ faqItems }}" as="f" hint-placeholder-count="6">
@@ -540,32 +532,38 @@
       <div style="{{ bookGridStyle }}">
         <div ref="{{ onReveal }}" style="opacity:0;transform:translateY(32px);transition:opacity 0.7s cubic-bezier(0.22,1,0.36,1),transform 0.7s cubic-bezier(0.22,1,0.36,1);">
           <p style="font-size:0.78rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#ff6b2c;margin:0 0 0.75rem;">Записаться</p>
-          <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,4vw,3rem);color:#fff;letter-spacing:0.02em;line-height:1.05;margin:0 0 1.5rem;">Напишите нам, ответим быстро.</h2>
-          <div style="display:flex;flex-direction:column;gap:0.7rem;font-size:0.95rem;color:rgba(255,255,255,0.6);">
-            <a href="tel:+79812818454" style="color:rgba(255,255,255,0.75);">📞 8 (981) 281-84-54</a>
-            <a href="https://t.me/enduro_energy" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,0.75);">Telegram: @enduro_energy</a>
-            <a href="https://vk.com/enduro_energy" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,0.75);">ВКонтакте: enduro_energy</a>
-            <a href="https://yandex.ru/profile/234965888694" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,0.75);">Отзывы на Яндекс</a>
+          <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,4vw,3rem);color:#fff;letter-spacing:0.02em;line-height:1.05;margin:0 0 1.5rem;">Звоните. Пишите.<br>Мы на связи.</h2>
+          <div style="display:flex;flex-direction:column;gap:0.85rem;font-size:0.95rem;color:rgba(255,255,255,0.6);">
+            <a href="tel:+79812818454" style="display:flex;align-items:center;gap:0.7rem;color:rgba(255,255,255,0.75);">
+              <span style="width:34px;height:34px;border-radius:50%;background:rgba(255,107,44,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#ff6b2c"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24 11.36 11.36 0 0 0 3.57.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.36 11.36 0 0 0 .57 3.57 1 1 0 0 1-.25 1.02z"/></svg></span>
+              8 (981) 281-84-54</a>
+            <a href="https://t.me/enduro_energy" target="_blank" style="display:flex;align-items:center;gap:0.7rem;color:rgba(255,255,255,0.75);">
+              <span style="width:34px;height:34px;border-radius:50%;background:rgba(39,167,231,0.18);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#27a7e7"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg></span>
+              Telegram: @enduro_energy</a>
+            <a href="https://vk.com/enduro_energy" target="_blank" style="display:flex;align-items:center;gap:0.7rem;color:rgba(255,255,255,0.75);">
+              <span style="width:34px;height:34px;border-radius:50%;background:rgba(0,119,255,0.18);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#5c9dff"><path d="M15.684 0H8.316C1.592 0 0 1.592 0 8.316v7.368C0 22.408 1.592 24 8.316 24h7.368C22.408 24 24 22.408 24 15.684V8.316C24 1.592 22.408 0 15.684 0zm3.692 17.123h-1.744c-.66 0-.862-.523-2.049-1.713-1.033-1-1.49-1.135-1.744-1.135-.356 0-.458.102-.458.593v1.575c0 .424-.135.678-1.253.678-1.846 0-3.896-1.118-5.335-3.202C4.624 10.857 4 8.921 4 8.498c0-.254.102-.491.593-.491h1.744c.44 0 .61.203.78.677.864 2.49 2.303 4.675 2.896 4.675.22 0 .322-.102.322-.66V9.721c-.068-1.186-.695-1.287-.695-1.71 0-.203.17-.407.44-.407h2.744c.373 0 .508.203.508.643v3.473c0 .372.17.508.271.508.22 0 .407-.136.813-.542 1.253-1.406 2.151-3.574 2.151-3.574.119-.254.322-.491.762-.491h1.744c.525 0 .643.27.525.643-.22 1.017-2.354 4.031-2.354 4.031-.186.305-.254.44 0 .78.186.254.796.779 1.203 1.253.745.847 1.32 1.558 1.473 2.05.17.49-.085.745-.576.745z"/></svg></span>
+              ВКонтакте: enduro_energy</a>
+            <a href="https://yandex.ru/profile/234965888694" target="_blank" style="display:flex;align-items:center;gap:0.7rem;color:rgba(255,255,255,0.75);">
+              <span style="width:34px;height:34px;border-radius:50%;background:rgba(252,63,29,0.16);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="12" fill="#FC3F1D"/><path d="M13.32 7.2H12.1c-1.34 0-2.05.63-2.05 1.67 0 1.18.54 1.76 1.65 2.5l.92.62-2.66 4.01H8.5l2.46-3.71c-1.35-.96-2.1-1.88-2.1-3.33 0-1.88 1.3-3.16 3.56-3.16h2.34V16h-1.44V7.2z" fill="#fff"/></svg></span>
+              Отзывы на Яндекс</a>
+            <div style="display:flex;align-items:center;gap:0.7rem;color:rgba(255,255,255,0.75);">
+              <span style="width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="16" height="16" viewBox="0 0 24 24" fill="rgba(255,255,255,0.7)"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm4.2 14.4L11 13.2V7h1.5v5.3l4.5 2.7z"/></svg></span>
+              Пн–вс, 10:00–20:00</div>
           </div>
         </div>
 
-        <form
-    action="https://formspree.io/f/ВСТАВЬ_ID_СЮДА"
-    method="POST"
-    onsubmit="(function(e){e.preventDefault();var f=e.target;var data=new FormData(f);fetch(f.action,{method:'POST',body:data,headers:{'Accept':'application/json'}}).then(function(r){if(r.ok){f.style.display='none';var ok=document.getElementById('form-success');if(ok)ok.style.display='flex';}else{alert('Ошибка отправки. Позвоните нам: 8 (981) 281-84-54');}}).catch(function(){alert('Ошибка. Напишите нам в Telegram: @enduro_energy');});})(event)"
-    ref="{{ onReveal }}"
-    style="display:flex;flex-direction:column;gap:1.1rem;padding:2rem;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:20px;opacity:0;transform:translateY(32px);transition:opacity 0.7s cubic-bezier(0.22,1,0.36,1) 0.1s,transform 0.7s cubic-bezier(0.22,1,0.36,1) 0.1s;">
+        <div ref="{{ onReveal }}" style="display:flex;flex-direction:column;gap:1.1rem;padding:2rem;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:20px;opacity:0;transform:translateY(32px);transition:opacity 0.7s cubic-bezier(0.22,1,0.36,1) 0.1s,transform 0.7s cubic-bezier(0.22,1,0.36,1) 0.1s;">
           <div>
             <label style="display:block;font-size:0.8rem;color:rgba(255,255,255,0.55);margin-bottom:0.4rem;">Ваше имя</label>
-            <input type="text" name="name" placeholder="Иван" required style="width:100%;padding:0.8rem 1rem;background:#0c0f0d;border:1px solid rgba(255,255,255,0.14);border-radius:8px;color:#fff;">
+            <input type="text" placeholder="Иван" style="width:100%;padding:0.8rem 1rem;background:#0c0f0d;border:1px solid rgba(255,255,255,0.14);border-radius:8px;color:#fff;">
           </div>
           <div>
             <label style="display:block;font-size:0.8rem;color:rgba(255,255,255,0.55);margin-bottom:0.4rem;">Телефон или Telegram</label>
-            <input type="tel" name="contact" placeholder="+7 или @ник" required style="width:100%;padding:0.8rem 1rem;background:#0c0f0d;border:1px solid rgba(255,255,255,0.14);border-radius:8px;color:#fff;">
+            <input type="text" placeholder="+7 или @ник" style="width:100%;padding:0.8rem 1rem;background:#0c0f0d;border:1px solid rgba(255,255,255,0.14);border-radius:8px;color:#fff;">
           </div>
           <div>
             <label style="display:block;font-size:0.8rem;color:rgba(255,255,255,0.55);margin-bottom:0.4rem;">Маршрут</label>
-            <select name="route" style="width:100%;padding:0.8rem 1rem;background:#0c0f0d;border:1px solid rgba(255,255,255,0.14);border-radius:8px;color:#fff;">
+            <select style="width:100%;padding:0.8rem 1rem;background:#0c0f0d;border:1px solid rgba(255,255,255,0.14);border-radius:8px;color:#fff;">
               <option>Прохват до Невы (3 часа) — 9 000 ₽</option>
               <option>Прохват до Богословки (5+ часов) — 12 000 ₽</option>
               <option>Прокат — 1 час</option>
@@ -579,10 +577,10 @@
           </div>
           <div>
             <label style="display:block;font-size:0.8rem;color:rgba(255,255,255,0.55);margin-bottom:0.4rem;">Комментарий</label>
-            <textarea name="comment" rows="3" placeholder="Уровень подготовки, пожелания..." style="width:100%;padding:0.8rem 1rem;background:#0c0f0d;border:1px solid rgba(255,255,255,0.14);border-radius:8px;color:#fff;font-family:inherit;"></textarea>
+            <textarea rows="3" placeholder="Уровень подготовки, пожелания..." style="width:100%;padding:0.8rem 1rem;background:#0c0f0d;border:1px solid rgba(255,255,255,0.14);border-radius:8px;color:#fff;font-family:inherit;"></textarea>
           </div>
-          <button type="submit" style="width:100%;padding:1rem;border-radius:10px;font-weight:700;font-size:0.98rem;background:#ff6b2c;color:#0c0f0d;border:none;cursor:pointer;">Отправить заявку</button>
-        </form>
+          <button style="width:100%;padding:1rem;border-radius:10px;font-weight:700;font-size:0.98rem;background:#ff6b2c;color:#0c0f0d;border:none;cursor:pointer;">Отправить заявку</button>
+        </div>
       </div>
     </div>
   </section>
@@ -593,8 +591,8 @@
   <div style="width:min(1280px,94vw);margin-inline:auto;">
     <div style="{{ footerGridStyle }}">
       <div>
-        <img loading="lazy" src="logo.png" alt="Enduro Energy" style="height:58px;width:auto;object-fit:contain;margin-bottom:0.9rem;">
-        <p style="font-size:0.85rem;color:rgba(255,255,255,0.5);line-height:1.6;max-width:32ch;">Прокат и обучение эндуро для новичков и опытных райдеров. 20 минут от м. Дыбенко, рядом с Санкт-Петербургом.</p>
+        <img src="logo.png" alt="Enduro Energy" style="height:58px;width:auto;object-fit:contain;margin-bottom:0.9rem;">
+        <p style="font-size:0.85rem;color:rgba(255,255,255,0.5);line-height:1.6;max-width:32ch;">Прокат и обучение эндуро для новичков и опытных райдеров. 30 минут от м. ул. Дыбенко, рядом с Санкт-Петербургом.</p>
       </div>
       <div>
         <p style="font-weight:700;color:#fff;margin:0 0 1rem;">Навигация</p>
@@ -603,27 +601,28 @@
           <a href="#trust" style="font-size:0.9rem;color:rgba(255,255,255,0.55);">Почему мы</a>
           <a href="#fleet" style="font-size:0.9rem;color:rgba(255,255,255,0.55);">Мотоциклы</a>
           <a href="#faq" style="font-size:0.9rem;color:rgba(255,255,255,0.55);">Вопросы</a>
-          <a href="https://t.me/enduro_energy" target="_blank" rel="noopener noreferrer" style="font-size:0.9rem;color:rgba(255,255,255,0.55);">Записаться</a>
+          <a href="https://t.me/enduro_energy" target="_blank" style="font-size:0.9rem;color:rgba(255,255,255,0.55);">Записаться</a>
         </div>
       </div>
       <div>
         <p style="font-weight:700;color:#fff;margin:0 0 1rem;">Контакты</p>
         <div style="display:flex;flex-direction:column;gap:0.6rem;">
           <a href="tel:+79812818454" style="font-size:0.9rem;color:rgba(255,255,255,0.55);">8 (981) 281-84-54</a>
+          <span style="font-size:0.9rem;color:rgba(255,255,255,0.55);">Пн–вс, 10:00–20:00</span>
           <a href="https://t.me/enduro_energy" style="font-size:0.9rem;color:rgba(255,255,255,0.55);">Telegram: @enduro_energy</a>
           <a href="https://vk.com/enduro_energy" style="font-size:0.9rem;color:rgba(255,255,255,0.55);">ВКонтакте</a>
-          <span style="font-size:0.9rem;color:rgba(255,255,255,0.55);">20 минут от м. Дыбенко</span>
+          <span style="font-size:0.9rem;color:rgba(255,255,255,0.55);">30 минут от м. ул. Дыбенко</span>
         </div>
       </div>
     </div>
     <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.5rem;padding-top:1.75rem;">
       <p style="font-size:0.75rem;color:rgba(255,255,255,0.4);margin:0;">© 2026 Enduro Energy</p>
-      <p style="font-size:0.75rem;color:rgba(255,255,255,0.4);margin:0;">Прокат эндуро · 20 мин от м. Дыбенко</p>
+      <p style="font-size:0.75rem;color:rgba(255,255,255,0.4);margin:0;">Прокат эндуро · 30 мин от м. ул. Дыбенко</p>
     </div>
   </div>
 </footer>
 
-<a href="https://t.me/enduro_energy" target="_blank" rel="noopener noreferrer" aria-label="Написать в Telegram" style="position:fixed;bottom:1.5rem;left:1.5rem;width:52px;height:52px;border-radius:50%;background:rgba(39,167,231,0.85);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(0,0,0,0.3);z-index:90;transition:transform 0.2s,box-shadow 0.2s;" style-hover="transform:translateY(-2px);box-shadow:0 10px 24px rgba(0,0,0,0.35);">
+<a href="https://t.me/enduro_energy" target="_blank" aria-label="Написать в Telegram" style="position:fixed;bottom:1.5rem;left:1.5rem;width:52px;height:52px;border-radius:50%;background:rgba(39,167,231,0.85);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(0,0,0,0.3);z-index:90;transition:transform 0.2s,box-shadow 0.2s;" style-hover="transform:translateY(-2px);box-shadow:0 10px 24px rgba(0,0,0,0.35);">
   <svg width="24" height="24" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"></path></svg>
 </a>
 
@@ -677,6 +676,8 @@ class Component extends DCLogic {
     if (!el) return;
     el.muted = true;
     el.volume = 0;
+    el.setAttribute('muted', '');
+    el.addEventListener('volumechange', () => { if (!el.muted || el.volume > 0) { el.muted = true; el.volume = 0; } });
     const tryPlay = () => el.play().catch(() => {});
     tryPlay();
     this._watchVideoVisibility(el);
@@ -696,6 +697,8 @@ class Component extends DCLogic {
     if (!el) return;
     el.muted = true;
     el.volume = 0;
+    el.setAttribute('muted', '');
+    el.addEventListener('volumechange', () => { if (!el.muted || el.volume > 0) { el.muted = true; el.volume = 0; } });
     if (!this._pairVideos.includes(el)) this._pairVideos.push(el);
     const tryPlay = () => {
       // sync both clips to start together once both are ready
@@ -824,6 +827,16 @@ class Component extends DCLogic {
     const galleryGridStyle = { display: 'grid', gridTemplateColumns: narrow ? 'repeat(2, 1fr)' : 'repeat(4, 1fr)', gap: '3px' };
     const reviewsGridStyle = threeColGrid('1.25rem');
     const safetyGridStyle = threeColGrid('1.25rem');
+    const emoRowStyle = {
+      display: 'grid',
+      gridTemplateColumns: narrow ? '2.5rem 1fr' : '3.5rem 1.2fr 0.8fr',
+      gap: narrow ? '0.5rem 1rem' : '2.5rem',
+      padding: '2.4rem 1rem',
+      borderBottom: '1px solid rgba(255,255,255,0.12)',
+      opacity: 0, transform: 'translateY(32px)',
+      transition: 'opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1), background 0.4s',
+      cursor: 'default',
+    };
     const footerGridStyle = { display: 'grid', gridTemplateColumns: narrow ? '1fr' : 'repeat(3, 1fr)', gap: '2rem', paddingBottom: '2.5rem', borderBottom: '1px solid rgba(255,255,255,0.08)' };
     const bookGridStyle = twoColGrid('4rem');
     const videoGridStyle = { display: 'grid', gridTemplateColumns: narrow ? 'repeat(1,1fr)' : 'repeat(2, 1fr)', gap: '3px' };
@@ -846,10 +859,10 @@ class Component extends DCLogic {
 
     // fleet models
     const fleetData = [
-      { tier: 'Начальный', spec: 'Питбайк · 125 куб', name: 'KAYO 125', desc: 'Лёгкий и безопасный. Для детей от 7 лет и тех, кто впервые садится на мотоцикл.', price: '2 500 ₽', img: 'bike-pitbike-black.png' },
-      { tier: 'Новичок', spec: 'Эндуро · 250 куб', name: 'KAYO K1 250', desc: 'Манёвренный и лёгкий. Идеален для новичков и лесных маршрутов любой сложности.', price: '3 500 ₽', img: 'bike2-black.png' },
-      { tier: 'Универсал', spec: 'Эндуро · 250 куб', name: 'KAYO K2 250', desc: 'Универсальный вариант для маршрутов любой сложности. Хорош и на трассе, и в лесу.', price: '3 500 ₽', img: 'bike3-black.png' },
-      { tier: 'Продвинутый', spec: 'Эндуро · 300 куб', name: 'PROGASSI 300', desc: 'Мощная техника для опытных райдеров. Максимум адреналина на сложном off-road.', price: '4 000 ₽', img: 'bike4-black.png' },
+      { tier: 'Начальный', spec: 'Питбайк · 125 куб', name: 'KAYO 125', desc: 'Лёгкий и безопасный. Для детей от 7 лет и тех, кто впервые садится на мотоцикл.', price: '2 500 ₽', img: 'fleet-pitbike.png' },
+      { tier: 'Новичок', spec: 'Эндуро · 250 куб', name: 'KAYO K1 250', desc: 'Манёвренный и лёгкий. Идеален для новичков и лесных маршрутов любой сложности.', price: '3 500 ₽', img: 'fleet-k1.png' },
+      { tier: 'Универсал', spec: 'Эндуро · 250 куб', name: 'KAYO K2 250', desc: 'Универсальный вариант для маршрутов любой сложности. Хорош и на трассе, и в лесу.', price: '3 500 ₽', img: 'fleet-k2.png' },
+      { tier: 'Продвинутый', spec: 'Эндуро · 300 куб', name: 'PROGASSI 300', desc: 'Мощная техника для опытных райдеров. Максимум адреналина на сложном off-road.', price: '4 000 ₽', img: 'fleet-progassi.png' },
     ];
     const fleetModels = fleetData.map((b, i) => ({
       ...b,
@@ -883,10 +896,10 @@ class Component extends DCLogic {
     }));
 
     const calcBikesData = [
-      { name: 'Kayo 125 (питбайк)', img: 'bike-pitbike.jpg', spec: 'Питбайк · 125 куб', priceLabel: 'от 2 500 ₽', prices: [2500, 4500, 6000, 9000] },
-      { name: 'Kayo K1 250', img: 'bike-k1.jpg', spec: 'Эндуро · 250 куб', priceLabel: 'от 3 500 ₽', prices: [3500, 6000, 9000, 12000] },
-      { name: 'Kayo K2 250', img: 'bike-k2.jpg', spec: 'Эндуро · 250 куб', priceLabel: 'от 3 500 ₽', prices: [3500, 6000, 9000, 12000] },
-      { name: 'Progassi 300', img: 'bike-progassi.jpg', spec: 'Эндуро · 300 куб', priceLabel: 'от 4 000 ₽', prices: [4000, 7000, 10000, 13000] },
+      { name: 'Kayo 125 (питбайк)', img: 'calc-pitbike.png', spec: 'Питбайк · 125 куб', priceLabel: 'от 2 500 ₽', prices: [2500, 4500, 6000, 9000] },
+      { name: 'Kayo K1 250', img: 'calc-k1.jpg', spec: 'Эндуро · 250 куб', priceLabel: 'от 3 500 ₽', prices: [3500, 6000, 9000, 12000] },
+      { name: 'Kayo K2 250', img: 'calc-k2.jpg', spec: 'Эндуро · 250 куб', priceLabel: 'от 3 500 ₽', prices: [3500, 6000, 9000, 12000] },
+      { name: 'Progassi 300', img: 'calc-progassi.jpg', spec: 'Эндуро · 300 куб', priceLabel: 'от 4 000 ₽', prices: [4000, 7000, 10000, 13000] },
     ];
     const calcBikes = calcBikesData.map((b) => ({
       ...b,
@@ -947,10 +960,10 @@ class Component extends DCLogic {
 
     // scenarios
     const scenariosData = [
-      { key: 'bachelor', num: '01', name: 'Мальчишник', desc: 'Незабываемый старт нового этапа: адреналин, лес, грязь и компания своих.', tag: '→ Скидка при группе от 3 человек', img: 'sc-bachelor-new.jpg' },
-      { key: 'birthday', num: '02', name: 'День рождения', desc: 'Отметь так, чтобы запомнили все. Скидка 15% имениннику.', tag: '→ −15% в течение 5 дней до и после ДР', img: 'g8.jpg', pos: 'center 68%' },
-      { key: 'family', num: '03', name: 'Семейный день', desc: 'Кто-то катается, кто-то ждёт с пледом — здорово провести время вместе может каждый.', tag: '→ Дети от 7 лет на питбайке', img: 'sc-family-new.jpg' },
-      { key: 'corp', num: '04', name: 'Корпоратив', desc: 'Тимбилдинг на природе. Адреналин объединяет лучше, чем банкет.', tag: '→ Группы до 20 человек, счёт для юрлиц', img: 'g6.jpg' },
+      { key: 'bachelor', num: '01', name: 'Мальчишник', desc: 'Незабываемый старт нового этапа: адреналин, лес, грязь и компания своих.', tag: '→ Скидка 15% от 2-х часов', img: 'sc-bachelor-new.jpg' },
+      { key: 'birthday', num: '02', name: 'День рождения', desc: 'Отметь так, чтобы запомнили все.', tag: '→ Скидка 15% от 2-х часов', img: 'g8.jpg', pos: 'center 68%' },
+      { key: 'family', num: '03', name: 'Семейный день', desc: 'Время с близкими, которое вы запомните.', tag: '→ Дети ростом от 150 см', img: 'sc-family-new.jpg' },
+      { key: 'corp', num: '04', name: 'Корпоратив', desc: 'Тимбилдинг на природе. Адреналин объединяет лучше, чем банкет. Группы до 20 человек.', tag: '', img: 'g6.jpg' },
       { key: 'date', num: '05', name: 'Свидание', desc: 'Необычный формат для двоих: адреналин и новые эмоции вместо привычного ужина.', tag: '→ Романтичный маршрут на закат', img: 'g5.jpg' },
     ];
     const scenarios = scenariosData.map((sc) => ({
@@ -977,35 +990,36 @@ class Component extends DCLogic {
 
     // reviews
     const reviews = [
-      { img: 'review1.jpg', name: 'Алексей К.', tag: 'Прохват до Невы', text: 'Прохват до Невы — это огонь. Организация на высшем уровне, техника в отличном состоянии. Уже планируем следующую поездку!' },
-      { img: 'review2.jpg', name: 'Михаил Д.', tag: 'Прохват до Богословки', text: 'Первый раз на эндуро — думал будет страшно. Инструктор объяснил, ехали в комфортном темпе. Богословка — красота! Теперь хочу на сложный маршрут.' },
-      { img: 'review3.jpg', name: 'Сергей В.', tag: 'Персональная тренировка', text: 'Взял персональную тренировку — инструктор разобрал технику от основ до продвинутых элементов. За 2 часа прогресс был виден сразу. Рекомендую всем кто хочет расти.' },
+      { img: 'review1-new.jpg', name: 'Илья В.', tag: 'Катались вдвоём с женой', text: 'Дважды катались с Владимиром: техника в хорошем состоянии, выдаётся полная экипировка. Первый раз приезжали с женой — для неё это была первая поездка, Владимир всё доходчиво объяснил, катались по полям и лесным тропам в комфортном темпе. Второй раз я катался один — Владимир подобрал более сложный и интересный маршрут!' },
+      { img: 'review2-new.jpg', name: 'Nola Löw', tag: 'Первая тренировка', text: 'Это была моя первая тренировка на мотике. Владимир — замечательный инструктор: всё детально показал и объяснил, весь маршрут была под его чутким присмотром. Смело рекомендую даже тем, кто ни разу не водил мотоцикл. Техника и экипировка в отличном состоянии, а маршрут волшебный: поля и лесные пейзажи.' },
+      { img: 'review3.jpg', name: 'Владимир Р.', tag: 'Катаемся с сыном', text: 'Катались с сыном уже пару раз. Отличные локации, потрясающие эмоции и виды! Инструктор не просто откатывает час, а реально учит: придумывает новые испытания для совершенствования езды и помогает их преодолевать. Очень круто, рекомендую!' },
     ];
 
     // safety
     const safetyItems = [
-      { num: '01', title: 'Страховка включена', text: 'Каждый участник застрахован. Катаетесь спокойно — мы взяли риски на себя.' },
-      { num: '02', title: 'Инструктор рядом', text: 'Едем в комфортном темпе. Инструктор всегда в группе — никто не остаётся один.' },
-      { num: '03', title: 'Полная экипировка', text: 'Шлем, защита спины, колен и локтей. Выдаём бесплатно — ничего покупать не нужно.' },
+      { num: '01', title: 'Настоящее приключение', text: 'Лесные тропы, лужи, подъёмы, спуски — километры впечатлений.', c1: 'rgba(255,107,44,0.28)', c2: 'rgba(255,171,122,0.18)', d1: '11s', d2: '14s' },
+      { num: '02', title: 'Инструктор рядом', text: 'Поддержка на всём маршруте, дружелюбное отношение.', c1: 'rgba(255,171,122,0.22)', c2: 'rgba(180,90,30,0.24)', d1: '13s', d2: '10s' },
+      { num: '03', title: 'Обслуженная техника и полная экипировка', text: 'Залог комфортной поездки.', c1: 'rgba(255,140,60,0.24)', c2: 'rgba(120,150,80,0.2)', d1: '12s', d2: '15s' },
     ];
 
     // faq
     const faqItems = [
-      { q: 'Нужны ли права для езды на эндуро?', a: 'На наших закрытых трассах и маршрутах права не требуются. Для выезда на дороги общего пользования нужна категория А.' },
-      { q: 'Можно ли без опыта?', a: 'Да, у нас есть маршруты специально для новичков. Инструктор проведёт базовый инструктаж перед поездкой — обычно хватает 30 минут чтобы уверенно тронуться.' },
-      { q: 'Что входит в стоимость?', a: 'Аренда мотоцикла, экипировка (шлем, защита, форма), сопровождение инструктора и страховка. Топливо включено.' },
-      { q: 'Как далеко от Санкт-Петербурга?', a: 'Мы находимся в деревне Хаппа-Ое — примерно 45 минут от КАД. Точный адрес и маршрут пришлём после записи.' },
-      { q: 'С какого возраста можно?', a: 'С 16 лет самостоятельно, до 16 — только с письменного согласия родителей и в их присутствии.' },
+      { q: 'Нужны ли права для езды на эндуро?', a: 'Права не нужны — эндуро-мотоциклы считаются спортивным инвентарём. Ездить по дорогам общего пользования запрещено.' },
+      { q: 'Можно ли без опыта?', a: 'Да, можно. Перед выездом инструктор проводит подробный инструктаж, а при необходимости — дополнительное обучение для уверенной езды.' },
+      { q: 'Что входит в стоимость?', a: 'Аренда мотоцикла с полным баком, экипировка, сопровождение, вода, рюкзак.' },
+      { q: 'Как далеко от Санкт-Петербурга?', a: 'Мы находимся во Всеволожском районе, недалеко от карьера Манушкино. 30 минут от м. ул. Дыбенко, 20 минут от КАД.' },
+      { q: 'С какого возраста можно?', a: 'С 18 лет самостоятельно. До 18 лет — в сопровождении родителя.' },
       { q: 'Что взять с собой?', a: 'Удобную одежду которую не жалко испачкать, закрытую обувь и хорошее настроение. Всё остальное мы предоставим.' },
+      { q: 'Чем отличается питбайк от эндуро-мотоцикла?', a: 'Питбайк предусмотрен для подростков, девушек и молодых людей небольшого роста и веса — в нём меньше мощности. Эндуро-мотоцикл более мощный: подходит опытным райдерам и тем, кто уверенно работает со сцеплением.' },
     ];
 
     // experience cards
     const expCards = [
       { num: '01', tag: 'Подход', title: 'Индивидуально', text: 'Учитываем ваш уровень, рост и настроение. Новичок или опытный — подберём мотоцикл и маршрут под вас.' },
-      { num: '02', tag: 'Обучение', title: 'С нуля до уверенной езды', text: 'Никогда не сидели на мотоцикле? Наш инструктор поставит на ход за первые 30 минут.' },
-      { num: '03', tag: 'Маршруты', title: 'Не по кругу', text: 'Реальные маршруты: лес, карьеры, до Невы и Богословки. Каждый раз новые ощущения.' },
+      { num: '02', tag: 'Обучение', title: 'С нуля до уверенной езды', text: 'Нет опыта? Не проблема: проведём инструктаж и обучение, чтобы вы поехали самостоятельно и в кайф.' },
+      { num: '03', tag: 'Маршруты', title: 'Не по кругу', text: 'Разнообразие маршрутов под разный уровень и настроение: леса, карьеры, прохваты, Нева, Богословка.' },
       { num: '04', tag: 'Всё включено', title: 'Приехал — поехал', text: 'Мотоцикл с полным баком, шлем, джерси, защита рук и ног, вода. Ничего покупать не нужно.' },
-      { num: '05', tag: 'Безопасность', title: 'Инструктор на маршруте', text: 'Едем в комфортном темпе. Инструктор всегда рядом — никто не остаётся один.' },
+      { num: '05', tag: 'Комфорт', title: 'Комфортный темп', text: 'Обслуженная техника. Поддержка инструктора весь маршрут. Комфортный темп.' },
       { num: '06', tag: 'Сообщество', title: 'Своя атмосфера', text: 'Дружеская компания, фото и видео, единомышленники. После первого раза хочется вернуться.' },
     ];
 
@@ -1033,7 +1047,7 @@ class Component extends DCLogic {
       scenarios, scenariosInnerGridStyle, scenarioCtaJustify,
       galleryImages, galleryGridStyle,
       reviews, reviewsGridStyle,
-      safetyItems, safetyGridStyle,
+      safetyItems, safetyGridStyle, emoRowStyle,
       faqItems,
       bookGridStyle,
       videoGridStyle,
@@ -1042,44 +1056,6 @@ class Component extends DCLogic {
   }
 }
 
-</script>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "Enduro Energy",
-  "description": "Прокат и обучение эндуро для новичков и опытных райдеров. 20 минут от м. Дыбенко.",
-  "url": "https://christina25031995.github.io/nordtrail-enduro/",
-  "telephone": "+79812818454",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Санкт-Петербург",
-    "addressRegion": "Ленинградская область",
-    "addressCountry": "RU"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": "59.8",
-    "longitude": "30.5"
-  },
-  "openingHoursSpecification": {
-    "@type": "OpeningHoursSpecification",
-    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
-    "opens": "09:00",
-    "closes": "21:00"
-  },
-  "priceRange": "₽₽",
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "5.0",
-    "reviewCount": "3"
-  },
-  "sameAs": [
-    "https://t.me/enduro_energy",
-    "https://vk.com/enduro_energy"
-  ]
-}
 </script>
 </body>
 </html>
