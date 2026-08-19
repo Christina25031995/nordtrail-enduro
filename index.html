@@ -3,7 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="yandex-verification" content="b54a5fbd39458860" />
 <script src="./support.js"></script>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}
+   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=111744225','ym');
+   ym(111744225,'init',{ssr:true,webvisor:true,clickmap:true,ecommerce:"dataLayer",referrer:document.referrer,url:location.href,accurateTrackBounce:true,trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/111744225" style="position:absolute; left:-9999px;" alt=""/></div></noscript>
+<!-- /Yandex.Metrika counter -->
 </head>
 <body>
 <x-dc>
@@ -57,7 +68,7 @@
       <li><a href="#fleet" style="font-size:0.92rem;color:rgba(245,242,234,0.75);">Мотоциклы</a></li>
       <li><a href="#pricing" style="font-size:0.92rem;color:rgba(245,242,234,0.75);">Цены</a></li>
       <li><a href="#scenarios" style="font-size:0.92rem;color:rgba(245,242,234,0.75);">Выезды</a></li>
-      <li><a href="https://t.me/enduro_energy" target="_blank" style="padding:0.6rem 1.2rem;background:#ff6b2c;color:#0c0f0d !important;border-radius:8px;font-weight:700;font-size:0.9rem;" style-hover="transform:translateY(-1px);box-shadow:0 10px 26px rgba(255,107,44,0.35);">Записаться</a></li>
+      <li><a href="https://t.me/enduro_energy" target="_blank" onclick="ym(111744225,'reachGoal','zapisatsya_click')" style="padding:0.6rem 1.2rem;background:#ff6b2c;color:#0c0f0d !important;border-radius:8px;font-weight:700;font-size:0.9rem;" style-hover="transform:translateY(-1px);box-shadow:0 10px 26px rgba(255,107,44,0.35);">Записаться</a></li>
     </ul>
 
     <button aria-label="Открыть меню" onClick="{{ toggleMobile }}" style="{{ navToggleStyle }}">
@@ -74,7 +85,7 @@
   <a href="#fleet" onClick="{{ closeMobile }}" style="color:#fff;">Мотоциклы</a>
   <a href="#pricing" onClick="{{ closeMobile }}" style="color:#fff;">Цены</a>
   <a href="#scenarios" onClick="{{ closeMobile }}" style="color:#fff;">Выезды</a>
-  <a href="https://t.me/enduro_energy" target="_blank" onClick="{{ closeMobile }}" style="padding:0.85rem 2.2rem;background:#ff6b2c;color:#0c0f0d;border-radius:8px;font-weight:700;">Записаться</a>
+  <a href="https://t.me/enduro_energy" target="_blank" onClick="{{ closeMobile }}" onclick="ym(111744225,'reachGoal','zapisatsya_click')" style="padding:0.85rem 2.2rem;background:#ff6b2c;color:#0c0f0d;border-radius:8px;font-weight:700;">Записаться</a>
 </div>
 
 <main id="top" style="position:relative;overflow-x:hidden;">
@@ -97,7 +108,7 @@
       <p style="font-size:1.15rem;color:rgba(255,255,255,0.82);max-width:34rem;margin:0 0 2rem;line-height:1.6;">Прокат эндуро-мотоциклов, обучение новичков, выезды для опытных райдеров. Мотоцикл, экипировка, маршрут и инструктор — всё включено. 30 минут от м. ул. Дыбенко.</p>
 
       <div style="display:flex;flex-wrap:wrap;gap:1rem;margin-bottom:1.5rem;">
-        <a href="https://t.me/enduro_energy" target="_blank" style="display:inline-flex;align-items:center;justify-content:center;padding:1rem 2rem;border-radius:8px;font-weight:700;font-size:1rem;background:#ff6b2c;color:#0c0f0d;transition:transform 0.2s,box-shadow 0.2s;" style-hover="transform:translateY(-2px);box-shadow:0 14px 34px rgba(255,107,44,0.35);">Записаться на катание</a>
+        <a href="https://t.me/enduro_energy" target="_blank" onclick="ym(111744225,'reachGoal','zapisatsya_click')" style="display:inline-flex;align-items:center;justify-content:center;padding:1rem 2rem;border-radius:8px;font-weight:700;font-size:1rem;background:#ff6b2c;color:#0c0f0d;transition:transform 0.2s,box-shadow 0.2s;" style-hover="transform:translateY(-2px);box-shadow:0 14px 34px rgba(255,107,44,0.35);">Записаться на катание</a>
         <a href="#routes" style="display:inline-flex;align-items:center;justify-content:center;padding:1rem 2rem;border-radius:8px;font-weight:600;font-size:1rem;border:1px solid rgba(255,255,255,0.25);color:#fff;transition:background 0.2s,border-color 0.2s;" style-hover="border-color:#ff6b2c;background:rgba(255,107,44,0.15);">Смотреть прохваты</a>
       </div>
 
@@ -178,7 +189,7 @@
           <p style="font-size:0.78rem;letter-spacing:0.16em;text-transform:uppercase;color:#ff6b2c;font-weight:700;margin:0 0 1.25rem;">Почему Enduro Energy</p>
           <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.6rem,5vw,4.6rem);color:#fff;letter-spacing:0.02em;line-height:1;margin:0 0 1.5rem;">Не просто <span style="color:#ff6b2c;">мотоцикл</span> напрокат.</h2>
           <p style="font-size:1.05rem;color:rgba(255,255,255,0.6);line-height:1.7;max-width:38ch;margin:0;">Мы не просто прокат эндуро-мотоциклов. Наша цель — подарить яркие эмоции, уверенность и создать настоящее приключение. Катаем как со своими: спокойно, понятно, с упором на удовольствие и безопасность.</p>
-          <a href="https://t.me/enduro_energy" target="_blank" style="display:inline-flex;margin-top:2.25rem;padding:0.9rem 1.9rem;border-radius:8px;font-weight:700;font-size:0.95rem;background:#ff6b2c;color:#0c0f0d;transition:transform 0.2s,box-shadow 0.2s;" style-hover="transform:translateY(-2px);box-shadow:0 12px 30px rgba(255,107,44,0.3);">Записаться на выезд</a>
+          <a href="https://t.me/enduro_energy" target="_blank" onclick="ym(111744225,'reachGoal','zapisatsya_click')" style="display:inline-flex;margin-top:2.25rem;padding:0.9rem 1.9rem;border-radius:8px;font-weight:700;font-size:0.95rem;background:#ff6b2c;color:#0c0f0d;transition:transform 0.2s,box-shadow 0.2s;" style-hover="transform:translateY(-2px);box-shadow:0 12px 30px rgba(255,107,44,0.3);">Записаться на выезд</a>
         </div>
 
         <div ref="{{ onReveal }}" style="opacity:0;transform:translateY(32px);transition:opacity 0.7s cubic-bezier(0.22,1,0.36,1) 0.1s,transform 0.7s cubic-bezier(0.22,1,0.36,1) 0.1s;">
@@ -224,7 +235,7 @@
             <p style="color:rgba(255,255,255,0.68);font-size:0.92rem;max-width:42ch;margin:0 0 1.5rem;">Лесные дороги, карьеры, выезд к берегу Невы. Не «по кругу» — настоящий маршрут с атмосферой.</p>
             <div style="display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;">
               <span style="font-family:'Bebas Neue',sans-serif;font-size:2.2rem;color:#fff;letter-spacing:0.03em;">9 000 ₽</span>
-              <a href="https://t.me/enduro_energy" target="_blank" style="padding:0.85rem 1.6rem;border-radius:8px;font-weight:700;font-size:0.9rem;background:#ff6b2c;color:#0c0f0d;">Записаться</a>
+              <a href="https://t.me/enduro_energy" target="_blank" onclick="ym(111744225,'reachGoal','zapisatsya_click')" style="padding:0.85rem 1.6rem;border-radius:8px;font-weight:700;font-size:0.9rem;background:#ff6b2c;color:#0c0f0d;">Записаться</a>
             </div>
           </div>
         </article>
@@ -238,7 +249,7 @@
             <p style="color:rgba(255,255,255,0.62);font-size:0.88rem;margin:0 0 1.25rem;">Большое путешествие: лес, карьеры, интересные участки. Для тех, кто хочет наездиться.</p>
             <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;">
               <span style="font-family:'Bebas Neue',sans-serif;font-size:1.9rem;color:#fff;letter-spacing:0.03em;">12 000 ₽</span>
-              <a href="https://t.me/enduro_energy" target="_blank" style="padding:0.7rem 1.2rem;border-radius:8px;font-weight:700;font-size:0.85rem;background:#ff6b2c;color:#0c0f0d;">Записаться</a>
+              <a href="https://t.me/enduro_energy" target="_blank" onclick="ym(111744225,'reachGoal','zapisatsya_click')" style="padding:0.7rem 1.2rem;border-radius:8px;font-weight:700;font-size:0.85rem;background:#ff6b2c;color:#0c0f0d;">Записаться</a>
             </div>
           </div>
         </article>
@@ -309,7 +320,7 @@
             <div style="font-size:0.88rem;color:rgba(255,255,255,0.6);">Вода на маршруте</div>
             <div style="font-size:0.88rem;color:rgba(255,255,255,0.6);">Инструктор / сопровождение</div>
           </div>
-          <a href="https://t.me/enduro_energy" target="_blank" style="display:block;text-align:center;padding:1rem;border-radius:10px;font-weight:700;font-size:0.98rem;background:#ff6b2c;color:#0c0f0d;transition:transform 0.2s,box-shadow 0.2s;" style-hover="transform:translateY(-2px);box-shadow:0 14px 30px rgba(255,107,44,0.32);">{{ calcCtaLabel }}</a>
+          <a href="https://t.me/enduro_energy" target="_blank" onclick="ym(111744225,'reachGoal','zapisatsya_click')" style="display:block;text-align:center;padding:1rem;border-radius:10px;font-weight:700;font-size:0.98rem;background:#ff6b2c;color:#0c0f0d;transition:transform 0.2s,box-shadow 0.2s;" style-hover="transform:translateY(-2px);box-shadow:0 14px 30px rgba(255,107,44,0.32);">{{ calcCtaLabel }}</a>
           <div style="display:flex;flex-direction:column;gap:0.6rem;margin-top:1.5rem;">
             <div style="display:flex;align-items:center;gap:0.6rem;font-size:0.82rem;color:rgba(255,255,255,0.55);"><span style="background:rgba(255,107,44,0.15);color:#ffab7a;font-weight:700;font-size:0.72rem;padding:0.2rem 0.5rem;border-radius:6px;">−10%</span>По будням от 2-х часов</div>
             <div style="display:flex;align-items:center;gap:0.6rem;font-size:0.82rem;color:rgba(255,255,255,0.55);"><span style="background:rgba(255,107,44,0.15);color:#ffab7a;font-weight:700;font-size:0.72rem;padding:0.2rem 0.5rem;border-radius:6px;">−15%</span>Мальчишник и день рождения от 2-х часов</div>
@@ -400,7 +411,7 @@
         </div>
 
         <div ref="{{ onReveal }}" style="opacity:0;transform:translateY(32px);transition:opacity 0.7s cubic-bezier(0.22,1,0.36,1) 0.1s,transform 0.7s cubic-bezier(0.22,1,0.36,1) 0.1s;display:flex;align-items:flex-end;justify-content:{{ scenarioCtaJustify }};height:100%;">
-          <a href="https://t.me/enduro_energy" target="_blank" style="display:inline-flex;padding:1.1rem 2.2rem;border-radius:10px;font-weight:700;font-size:1rem;background:#ff6b2c;color:#0c0f0d;transition:transform 0.2s,box-shadow 0.2s;" style-hover="transform:translateY(-2px);box-shadow:0 16px 34px rgba(255,107,44,0.32);">Записаться на выезд</a>
+          <a href="https://t.me/enduro_energy" target="_blank" onclick="ym(111744225,'reachGoal','zapisatsya_click')" style="display:inline-flex;padding:1.1rem 2.2rem;border-radius:10px;font-weight:700;font-size:1rem;background:#ff6b2c;color:#0c0f0d;transition:transform 0.2s,box-shadow 0.2s;" style-hover="transform:translateY(-2px);box-shadow:0 16px 34px rgba(255,107,44,0.32);">Записаться на выезд</a>
         </div>
       </div>
     </div>
@@ -534,13 +545,13 @@
           <p style="font-size:0.78rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#ff6b2c;margin:0 0 0.75rem;">Записаться</p>
           <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,4vw,3rem);color:#fff;letter-spacing:0.02em;line-height:1.05;margin:0 0 1.5rem;">Звоните. Пишите.<br>Мы на связи.</h2>
           <div style="display:flex;flex-direction:column;gap:0.85rem;font-size:0.95rem;color:rgba(255,255,255,0.6);">
-            <a href="tel:+79812818454" style="display:flex;align-items:center;gap:0.7rem;color:rgba(255,255,255,0.75);">
+            <a href="tel:+79812818454" onclick="ym(111744225,'reachGoal','phone_click')" style="display:flex;align-items:center;gap:0.7rem;color:rgba(255,255,255,0.75);">
               <span style="width:34px;height:34px;border-radius:50%;background:rgba(255,107,44,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#ff6b2c"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24 11.36 11.36 0 0 0 3.57.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.36 11.36 0 0 0 .57 3.57 1 1 0 0 1-.25 1.02z"/></svg></span>
               8 (981) 281-84-54</a>
-            <a href="https://t.me/enduro_energy" target="_blank" style="display:flex;align-items:center;gap:0.7rem;color:rgba(255,255,255,0.75);">
+            <a href="https://t.me/enduro_energy" target="_blank" onclick="ym(111744225,'reachGoal','telegram_click')" style="display:flex;align-items:center;gap:0.7rem;color:rgba(255,255,255,0.75);">
               <span style="width:34px;height:34px;border-radius:50%;background:rgba(39,167,231,0.18);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#27a7e7"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg></span>
               Telegram: @enduro_energy</a>
-            <a href="https://vk.com/enduro_energy" target="_blank" style="display:flex;align-items:center;gap:0.7rem;color:rgba(255,255,255,0.75);">
+            <a href="https://vk.com/enduro_energy" target="_blank" onclick="ym(111744225,'reachGoal','vk_click')" style="display:flex;align-items:center;gap:0.7rem;color:rgba(255,255,255,0.75);">
               <span style="width:34px;height:34px;border-radius:50%;background:rgba(0,119,255,0.18);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#5c9dff"><path d="M15.684 0H8.316C1.592 0 0 1.592 0 8.316v7.368C0 22.408 1.592 24 8.316 24h7.368C22.408 24 24 22.408 24 15.684V8.316C24 1.592 22.408 0 15.684 0zm3.692 17.123h-1.744c-.66 0-.862-.523-2.049-1.713-1.033-1-1.49-1.135-1.744-1.135-.356 0-.458.102-.458.593v1.575c0 .424-.135.678-1.253.678-1.846 0-3.896-1.118-5.335-3.202C4.624 10.857 4 8.921 4 8.498c0-.254.102-.491.593-.491h1.744c.44 0 .61.203.78.677.864 2.49 2.303 4.675 2.896 4.675.22 0 .322-.102.322-.66V9.721c-.068-1.186-.695-1.287-.695-1.71 0-.203.17-.407.44-.407h2.744c.373 0 .508.203.508.643v3.473c0 .372.17.508.271.508.22 0 .407-.136.813-.542 1.253-1.406 2.151-3.574 2.151-3.574.119-.254.322-.491.762-.491h1.744c.525 0 .643.27.525.643-.22 1.017-2.354 4.031-2.354 4.031-.186.305-.254.44 0 .78.186.254.796.779 1.203 1.253.745.847 1.32 1.558 1.473 2.05.17.49-.085.745-.576.745z"/></svg></span>
               ВКонтакте: enduro_energy</a>
             <a href="https://max.ru/+79812818454" target="_blank" style="display:flex;align-items:center;gap:0.7rem;color:rgba(255,255,255,0.75);">
@@ -582,7 +593,7 @@
             <label style="display:block;font-size:0.8rem;color:rgba(255,255,255,0.55);margin-bottom:0.4rem;">Комментарий</label>
             <textarea rows="3" placeholder="Уровень подготовки, пожелания..." style="width:100%;padding:0.8rem 1rem;background:#0c0f0d;border:1px solid rgba(255,255,255,0.14);border-radius:8px;color:#fff;font-family:inherit;"></textarea>
           </div>
-          <button style="width:100%;padding:1rem;border-radius:10px;font-weight:700;font-size:0.98rem;background:#ff6b2c;color:#0c0f0d;border:none;cursor:pointer;">Отправить заявку</button>
+          <button onclick="ym(111744225,'reachGoal','form_submit')" style="width:100%;padding:1rem;border-radius:10px;font-weight:700;font-size:0.98rem;background:#ff6b2c;color:#0c0f0d;border:none;cursor:pointer;">Отправить заявку</button>
         </div>
       </div>
     </div>
@@ -604,7 +615,7 @@
           <a href="#trust" style="font-size:0.9rem;color:rgba(255,255,255,0.55);">Почему мы</a>
           <a href="#fleet" style="font-size:0.9rem;color:rgba(255,255,255,0.55);">Мотоциклы</a>
           <a href="#faq" style="font-size:0.9rem;color:rgba(255,255,255,0.55);">Вопросы</a>
-          <a href="https://t.me/enduro_energy" target="_blank" style="font-size:0.9rem;color:rgba(255,255,255,0.55);">Записаться</a>
+          <a href="https://t.me/enduro_energy" target="_blank" onclick="ym(111744225,'reachGoal','zapisatsya_click')" style="font-size:0.9rem;color:rgba(255,255,255,0.55);">Записаться</a>
         </div>
       </div>
       <div>
@@ -626,7 +637,7 @@
   </div>
 </footer>
 
-<a href="https://t.me/enduro_energy" target="_blank" aria-label="Написать в Telegram" style="position:fixed;bottom:1.5rem;left:1.5rem;width:52px;height:52px;border-radius:50%;background:rgba(39,167,231,0.85);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(0,0,0,0.3);z-index:90;transition:transform 0.2s,box-shadow 0.2s;" style-hover="transform:translateY(-2px);box-shadow:0 10px 24px rgba(0,0,0,0.35);">
+<a href="https://t.me/enduro_energy" target="_blank" aria-label="Написать в Telegram" onclick="ym(111744225,'reachGoal','telegram_click')" style="position:fixed;bottom:1.5rem;left:1.5rem;width:52px;height:52px;border-radius:50%;background:rgba(39,167,231,0.85);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(0,0,0,0.3);z-index:90;transition:transform 0.2s,box-shadow 0.2s;" style-hover="transform:translateY(-2px);box-shadow:0 10px 24px rgba(0,0,0,0.35);">
   <svg width="24" height="24" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"></path></svg>
 </a>
 
