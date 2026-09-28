@@ -71,7 +71,7 @@
     banner.setAttribute('aria-label', 'Настройки cookie');
     banner.hidden = true;
     banner.innerHTML =
-      '<p>Сайт использует cookie и Яндекс Метрику для аналитики. Подробнее — в <a href="privacy.html">Политике</a>.</p>' +
+      '<p style="text-wrap:pretty">Мы используем cookie и Яндекс Метрику для аналитики. <a href="privacy.html" style="white-space:nowrap">Подробнее о cookie</a></p>' +
       '<div class="ee-cookie-btns">' +
       '<button type="button" class="ee-accept">Принять</button>' +
       '<button type="button" class="ee-necessary">Только необходимые</button>' +
