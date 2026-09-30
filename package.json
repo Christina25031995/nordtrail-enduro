@@ -1,0 +1,10 @@
+{
+  "private": true,
+  "scripts": {
+    "prerender": "node _tools/prerender.mjs",
+    "prerender:restore": "node _tools/prerender.mjs --restore"
+  },
+  "devDependencies": {
+    "playwright-core": "^1.63.0"
+  }
+}
