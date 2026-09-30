@@ -80,7 +80,7 @@ export function toSource(html) {
   return out;
 }
 
-const SHIM = `(function(){var d=document,h=d.documentElement,t=d.getElementById('dc-tpl'),p=d.getElementById('dc-prerender'),x=d.createElement('x-dc');x.innerHTML=t.content.querySelector('x-dc').innerHTML;t.parentNode.insertBefore(x,p||t);if(p)p.remove();d.querySelectorAll('[data-dc-pr]').forEach(function(e){e.remove()});h.classList.remove('dc-js');if(!h.className)h.removeAttribute('class')})();`;
+const SHIM = `(function(){var d=document,h=d.documentElement,t=d.getElementById('dc-tpl'),p=d.getElementById('dc-prerender'),x=d.createElement('x-dc');var s=t.content.querySelector('x-dc').innerHTML;x.innerHTML=s.split(' src="{{').join(' data-dc-src="{{');Object.defineProperty(x,'innerHTML',{get:function(){return s},configurable:true});t.parentNode.insertBefore(x,p||t);if(p)p.remove();d.querySelectorAll('[data-dc-pr]').forEach(function(e){e.remove()});h.classList.remove('dc-js');if(!h.className)h.removeAttribute('class')})();`;
 
 function serve(overrides) {
   const types = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript', '.css': 'text/css', '.svg': 'image/svg+xml',
