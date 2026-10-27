@@ -1,0 +1,51 @@
+# Автовыгрузка сайта на хостинг TinaDigital (reg.ru Хост-1, server287) при каждом пуше в main.
+# Секреты репозитория (Settings → Secrets and variables → Actions):
+#   FTP_USERNAME — FTP-пользователь с домашней папкой www
+#   FTP_PASSWORD — его пароль
+name: Deploy to hosting
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-hosting
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      HAS_FTP: ${{ secrets.FTP_PASSWORD != '' }}
+    steps:
+      - name: Skip if FTP secrets are not set yet
+        if: env.HAS_FTP != 'true'
+        run: echo "FTP_PASSWORD is not set — nothing to deploy yet."
+
+      - uses: actions/checkout@v4
+        if: env.HAS_FTP == 'true'
+
+      - name: Upload via FTPS
+        if: env.HAS_FTP == 'true'
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: server287.hosting.reg.ru
+          protocol: ftps
+          port: 21
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: ./enduro-energy.ru/
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/.github/**
+            **/.claude/**
+            **/node_modules/**
+            CNAME
+            .nojekyll
+            README*
+            **/_tools/**
+            **/_preview/**
+            package.json
+            package-lock.json
