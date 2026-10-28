@@ -1,0 +1,9 @@
+# Склейка зеркал (28.10.2026, переезд на хостинг TinaDigital): главное зеркало https://enduro-energy.ru/
+# http→https включён в ISPmanager (настройки сайта), здесь только www и дубль главной.
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^www\.enduro-energy\.ru$ [NC]
+RewriteRule ^(.*)$ https://enduro-energy.ru/$1 [R=301,L]
+RewriteCond %{THE_REQUEST} \s/+index\.html[\s?]
+RewriteRule ^index\.html$ https://enduro-energy.ru/ [R=301,L]
+</IfModule>
