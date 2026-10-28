@@ -25,6 +25,17 @@ jobs:
 
       - uses: actions/checkout@v4
         if: env.HAS_FTP == 'true'
+        with:
+          # полная история (без старых blob'ов): cdnify закрепляет каждый файл
+          # за коммитом, где он менялся последний раз, чтобы кэш CDN не сбрасывался
+          fetch-depth: 0
+          filter: blob:none
+
+      # Тяжёлые фото и видео в HTML переписываются на jsDelivr (файлы до 20 МБ),
+      # при ошибке CDN страница берёт файл с enduro-energy.ru. В репозитории пути остаются относительными.
+      - name: Point media at jsDelivr CDN
+        if: env.HAS_FTP == 'true'
+        run: python3 .github/scripts/cdnify.py . "${{ github.sha }}" "${{ github.repository }}"
 
       - name: Upload via FTPS
         if: env.HAS_FTP == 'true'
